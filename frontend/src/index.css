@@ -16,3 +16,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+* {
+  box-sizing: border-box;
+}

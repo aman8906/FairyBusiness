@@ -1,16 +1,25 @@
 {
-  "name": "backend",
+  "name": "fbs-management-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "FBS Management Consultancy Backend API",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-     "dev": "nodemon server.js",
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "engines": {
+    "node": ">=20 <25"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "node",
+    "api",
+    "fbs"
+  ],
+  "author": "Aman Chaursiya",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
