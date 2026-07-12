@@ -47,7 +47,7 @@ const companyHighlights = [
     icon: Target,
     title: "Our Mission",
     description:
-      "To empower organizations by providing exceptional HR consulting, recruitment and outsourcing solutions that drive business growth and create long-term value.",
+      "To empower organizations by providing exceptional HR consulting, recruitment, corporate training and outsourcing solutions that drive business growth and create long-term value.",
   },
   {
     icon: Eye,
@@ -80,7 +80,7 @@ const values = [
     icon: Lightbulb,
     title: "Customized Solutions",
     description:
-      "Every organization has different workforce needs, so we create flexible HR and staffing solutions around specific business goals.",
+      "Every organization has different workforce and training needs, so we create flexible HR, staffing and training solutions around specific business goals.",
   },
   {
     icon: Handshake,
@@ -107,8 +107,10 @@ const expertise = [
   "Organizational structure and HR strategy",
   "Permanent and contract staffing",
   "Executive search and lateral hiring",
-  "Bulk hiring and campus recruitment",
+  "Bulk hiring, campus hiring and placement support",
   "IT and non-IT recruitment",
+  "IT project handling and software developer staffing",
+  "Corporate training — soft skills, NLP, POSH and TTT",
   "Hospitality staffing and operations support",
   "Payroll and workforce management",
 ];
@@ -132,7 +134,7 @@ const leadership = [
     role: "Founder",
     icon: UserRound,
     description:
-      "Provides strategic direction and business leadership to FBS Management Consultancy.",
+      "Provides strategic direction and business leadership to Fairy Business Services.",
   },
   {
     name: "Hema Raman Sharma",
@@ -150,7 +152,7 @@ const About = () => {
       <section className="relative overflow-hidden bg-slate-950 text-white">
         <img
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80&auto=format&fit=crop"
-          alt="FBS Management Consultancy recruitment and HR consulting team"
+          alt="Fairy Business Services recruitment and HR consulting team"
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
 
@@ -163,21 +165,21 @@ const About = () => {
           </p>
 
           <h1 className="max-w-5xl text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
-            About FBS Management Consultancy
+            About Fairy Business Services
           </h1>
 
           <p className="mt-6 max-w-4xl text-base leading-8 text-slate-300 sm:text-lg">
-            Fairy Business Services Management Consultancy is an HR consulting,
-            recruitment and workforce outsourcing company backed by more than
-            25 years of expertise across diverse business segments.
+            Fairy Business Services is an HR consulting, recruitment, corporate
+            training and workforce outsourcing company backed by more than 25
+            years of expertise across diverse business segments.
           </p>
 
           <p className="mt-4 max-w-4xl leading-8 text-slate-300">
             We help organizations build productive and high-performing teams
-            through customized manpower solutions across IT, non-IT,
-            hospitality and other industries. Our client-focused approach helps
-            businesses reduce hiring time, improve workforce productivity and
-            focus on their core operations.
+            through customized manpower and training solutions across IT,
+            non-IT, hospitality and other industries. Our client-focused
+            approach helps businesses reduce hiring time, improve workforce
+            productivity and focus on their core operations.
           </p>
 
           <div className="mt-12 grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-4">
@@ -253,16 +255,18 @@ const About = () => {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              FBS Management Consultancy delivers end-to-end HR solutions for
-              employers seeking qualified professionals, flexible staffing
-              models and reliable workforce management support.
+              Fairy Business Services delivers end-to-end HR solutions for
+              employers seeking qualified professionals, IT project resources,
+              flexible staffing models and reliable workforce management
+              support.
             </p>
 
             <p className="mt-4 leading-8 text-slate-600">
               From requirement analysis and candidate sourcing to screening,
-              interview coordination, onboarding, payroll and compliance
-              support, our team manages each stage of the recruitment process
-              with professionalism and transparency.
+              interview coordination, onboarding, payroll, corporate training
+              and compliance support, our team manages each stage of the
+              recruitment and workforce development process with
+              professionalism and transparency.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -271,7 +275,7 @@ const About = () => {
                 "Fast turnaround time",
                 "Quality candidate screening",
                 "Industry-specific hiring expertise",
-                "Customized HR solutions",
+                "Customized HR & training solutions",
                 "Dedicated client support",
               ].map((item) => (
                 <div
@@ -305,8 +309,8 @@ const About = () => {
 
             <p className="mx-auto mt-5 max-w-3xl leading-7 text-slate-600">
               Our purpose is to create meaningful value for employers,
-              candidates and educational institutions through dependable HR
-              and recruitment solutions.
+              candidates and educational institutions through dependable HR,
+              training and recruitment solutions.
             </p>
           </div>
 
@@ -342,13 +346,14 @@ const About = () => {
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">
-              Complete HR, recruitment and outsourcing support
+              Complete HR, recruitment, training and outsourcing support
             </h2>
 
             <p className="mt-5 leading-8 text-slate-300">
               We provide flexible solutions for organizations requiring
               permanent employees, contract workers, outsourced teams,
-              hospitality professionals or entry-level talent.
+              hospitality professionals, corporate training or entry-level
+              talent.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -494,8 +499,8 @@ const About = () => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-orange-50 sm:text-lg">
-            Share your recruitment, staffing, payroll, outsourcing or campus
-            hiring requirements with FBS Management Consultancy.
+            Share your recruitment, staffing, training, payroll, outsourcing
+            or campus hiring requirements with Fairy Business Services.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">

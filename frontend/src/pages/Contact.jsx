@@ -20,10 +20,10 @@ import {
 
 import api from "../api/axios";
 
-const COMPANY_NAME = "FBS Management Consultancy";
+const COMPANY_NAME = "Fairy Business Services";
 const PHONE_NUMBER = "+91 88906 28049";
 const PHONE_LINK = "tel:+918890628049";
-const EMAIL_ADDRESS = "info@fairybusinessservice.com";
+const EMAIL_ADDRESS = "fairybusinessservices@outlook.com";
 const OFFICE_ADDRESS = "Pratap Nagar, Jaipur, Rajasthan – 302033";
 
 const MAP_LINK =
@@ -56,9 +56,12 @@ const services = [
   "Permanent Staffing",
   "Executive Search",
   "Bulk Hiring",
-  "Campus Hiring & Placement",
+  "Campus Hiring",
+  "Placement Support",
   "IT Recruitment",
   "Non-IT Recruitment",
+  "IT Project Handling",
+  "Software Developer",
   "Hospitality Staffing",
   "Contract Staffing",
   "Payroll Management",
@@ -66,6 +69,11 @@ const services = [
   "Facility Management Staffing",
   "Workforce Management",
   "Compliance Support",
+  "Corporate Training",
+  "Soft-Skills Trainer",
+  "NLP Training",
+  "POSH Training",
+  "TTT (Train the Trainer)",
   "Other Requirement",
 ];
 
@@ -73,6 +81,7 @@ const whyChooseUs = [
   "25+ years of industry expertise",
   "Experienced recruitment professionals",
   "IT and non-IT hiring expertise",
+  "Corporate & soft-skills training",
   "Hospitality staffing support",
   "Fast candidate deployment",
   "Quality candidate screening",
@@ -238,12 +247,12 @@ const Contact = () => {
           </span>
 
           <h1 className="mx-auto mt-6 max-w-5xl text-4xl font-extrabold leading-tight text-[#062c54] md:text-6xl">
-            Fairy Business Services Management Consultancy
+            Fairy Business Services
           </h1>
 
           <p className="mx-auto mt-5 max-w-4xl text-base leading-8 text-slate-600 md:text-lg">
             Your trusted HR partner for recruitment, staffing, workforce
-            management and outsourcing solutions across India.
+            management, corporate training and outsourcing solutions across India.
           </p>
 
           <div className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -320,7 +329,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Why choose FBS */}
+      {/* Why choose Fairy Business Services */}
       <section className="mx-auto max-w-7xl px-5 py-24">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
@@ -330,19 +339,20 @@ const Contact = () => {
             transition={{ duration: 0.75 }}
           >
             <p className="font-semibold uppercase tracking-[0.2em] text-orange-500">
-              Why choose FBS?
+              Why choose Fairy Business Services?
             </p>
 
             <h2 className="mt-3 text-4xl font-extrabold text-[#062c54] md:text-5xl">
-              Reliable talent and workforce solutions for modern organizations
+              Reliable talent, training and workforce solutions for modern
+              organizations
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              FBS Management Consultancy is backed by more than 25 years of
+              Fairy Business Services is backed by more than 25 years of
               expertise across diverse business segments. We deliver customized
-              HR consulting, recruitment, hospitality staffing and outsourcing
-              solutions that help organizations build productive,
-              high-performing teams.
+              HR consulting, recruitment, IT project support, corporate
+              training and outsourcing solutions that help organizations build
+              productive, high-performing teams.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -406,8 +416,9 @@ const Contact = () => {
 
               <p className="mt-4 leading-7 text-slate-300">
                 To empower organizations through exceptional HR consulting,
-                recruitment and outsourcing solutions that improve workforce
-                performance, support business growth and create long-term value.
+                recruitment, corporate training and outsourcing solutions that
+                improve workforce performance, support business growth and
+                create long-term value.
               </p>
             </div>
           </motion.div>
@@ -433,7 +444,8 @@ const Contact = () => {
 
             <p className="mt-5 max-w-xl leading-8 text-white/80">
               Whether you need one specialist, a complete team, hospitality
-              professionals or campus hiring support, our team is ready to help.
+              professionals, corporate training or campus hiring support, our
+              team is ready to help.
             </p>
 
             <div className="mt-9 border-b border-white/40 pb-4">
@@ -477,8 +489,10 @@ const Contact = () => {
               <h3 className="mt-4 text-2xl font-bold">{COMPANY_NAME}</h3>
 
               <p className="mt-3 leading-7 text-white/80">
-                HR Consulting | Recruitment | IT Hiring | Non-IT Hiring |
-                Hospitality Staffing | Outsourcing
+                HR Consulting | Recruitment | IT Hiring | Non-IT Hiring | IT
+                Project Handling | Software Developer | Corporate Training |
+                Soft-Skills, NLP, POSH & TTT | Campus Hiring | Placement
+                Support | Hospitality Staffing | Outsourcing
               </p>
             </div>
           </motion.div>
@@ -501,8 +515,8 @@ const Contact = () => {
               </h3>
 
               <p className="mt-3 text-sm leading-6 text-slate-500">
-                Complete the form and share your hiring, staffing, placement or
-                HR consulting requirements.
+                Complete the form and share your hiring, staffing, placement,
+                training or HR consulting requirements.
               </p>
             </div>
 
@@ -619,7 +633,7 @@ const Contact = () => {
                   required
                   minLength={10}
                   maxLength={1500}
-                  placeholder="Describe the role, number of employees, location, experience level or HR support you require"
+                  placeholder="Describe the role, number of employees, location, experience level or HR/training support you require"
                   rows={6}
                   className="w-full resize-none rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
                 />
@@ -674,7 +688,7 @@ const Contact = () => {
           </div>
 
           <iframe
-            title="FBS Management Consultancy office location"
+            title="Fairy Business Services office location"
             src="https://www.google.com/maps?q=Pratap%20Nagar%20Jaipur%20Rajasthan%20302033&z=14&output=embed"
             width="100%"
             height="420"
@@ -688,10 +702,10 @@ const Contact = () => {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/918890628049?text=Hello%20FBS%20Management%20Consultancy,%20I%20would%20like%20to%20know%20more%20about%20your%20HR,%20recruitment%20and%20staffing%20services."
+        href="https://wa.me/918890628049?text=Hello%20Fairy%20Business%20Services,%20I%20would%20like%20to%20know%20more%20about%20your%20HR,%20recruitment,%20training%20and%20staffing%20services."
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with FBS Management Consultancy on WhatsApp"
+        aria-label="Chat with Fairy Business Services on WhatsApp"
         title="Chat on WhatsApp"
         className="fixed bottom-5 left-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition hover:scale-110 hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-200"
       >
@@ -701,7 +715,7 @@ const Contact = () => {
       {/* Call */}
       <a
         href={PHONE_LINK}
-        aria-label="Call FBS Management Consultancy"
+        aria-label="Call Fairy Business Services"
         title={`Call ${PHONE_NUMBER}`}
         className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#062c54] text-white shadow-2xl transition hover:scale-110 hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200"
       >

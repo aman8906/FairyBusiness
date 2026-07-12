@@ -4,7 +4,9 @@ import {
   BriefcaseBusiness,
   Building2,
   CheckCircle2,
+  Code2,
   FileCheck2,
+  FolderKanban,
   GraduationCap,
   Handshake,
   Headphones,
@@ -12,11 +14,13 @@ import {
   Landmark,
   Laptop,
   Network,
+  Presentation,
   Search,
   ShieldCheck,
   Sparkles,
   Target,
   UserCheck,
+  UserPlus,
   Users,
   UsersRound,
   WalletCards,
@@ -84,6 +88,30 @@ const services = [
     ],
   },
   {
+    name: "IT Project Handling",
+    icon: FolderKanban,
+    description:
+      "Dedicated resource support for planning, staffing and executing IT projects from kickoff through delivery.",
+    features: [
+      "Project Resource Staffing",
+      "Agile & Scrum Support",
+      "Technical Team Augmentation",
+      "End-to-End Project Coordination",
+    ],
+  },
+  {
+    name: "Software Developer",
+    icon: Code2,
+    description:
+      "Skilled software developers across web, mobile, backend and full-stack technologies for in-house or project-based needs.",
+    features: [
+      "Web & Mobile Developers",
+      "Full-Stack Engineers",
+      "Backend & API Developers",
+      "Technology-Specific Hiring",
+    ],
+  },
+  {
     name: "Non-IT Recruitment",
     icon: Building2,
     description:
@@ -93,6 +121,18 @@ const services = [
       "Accounts & Finance",
       "HR & Administration",
       "Retail, Healthcare & Logistics",
+    ],
+  },
+  {
+    name: "Corporate Training",
+    icon: Presentation,
+    description:
+      "Customized corporate training programs designed around each client's needs — from soft skills to specialized workplace training.",
+    features: [
+      "Soft-Skills Training",
+      "NLP (Neuro-Linguistic Programming)",
+      "POSH Training",
+      "TTT (Train the Trainer)",
     ],
   },
   {
@@ -144,15 +184,27 @@ const services = [
     ],
   },
   {
-    name: "Campus Hiring & Placement",
+    name: "Campus Hiring",
     icon: GraduationCap,
     description:
-      "Campus recruitment and placement support connecting colleges, universities and institutes with reputed employers.",
+      "Campus recruitment drives connecting colleges, universities and institutes with reputed employers.",
     features: [
       "Campus Recruitment Drives",
       "Graduate Hiring",
       "Student Screening",
+      "Pre-Placement Talks",
+    ],
+  },
+  {
+    name: "Placement Support",
+    icon: UserPlus,
+    description:
+      "End-to-end placement assistance helping candidates and institutes connect with the right opportunities.",
+    features: [
       "Placement Coordination",
+      "Candidate Guidance",
+      "Employer Tie-Ups",
+      "Interview Preparation Support",
     ],
   },
   {
@@ -230,7 +282,7 @@ const Services = () => {
       <section className="relative overflow-hidden bg-slate-950 text-white">
         <img
           src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80&auto=format&fit=crop"
-          alt="FBS Management Consultancy recruitment and HR consulting team"
+          alt="Fairy Business Services recruitment and HR consulting team"
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
 
@@ -239,17 +291,17 @@ const Services = () => {
         <div className="relative mx-auto max-w-7xl px-5 py-20 text-center md:py-28">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-orange-200 backdrop-blur">
             <Sparkles size={18} />
-            Complete Talent & Workforce Solutions
+            Complete Talent, Training & Workforce Solutions
           </p>
 
           <h1 className="mx-auto mt-6 max-w-5xl text-4xl font-extrabold leading-tight md:text-6xl">
-            HR, Recruitment, Staffing and Outsourcing Services
+            HR, Recruitment, Staffing, Training and Outsourcing Services
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
-            FBS Management Consultancy provides customized workforce solutions
-            across IT, non-IT, hospitality, campus recruitment and outsourced
-            staffing requirements throughout India.
+            Fairy Business Services provides customized workforce solutions
+            across IT, non-IT, hospitality, corporate training, campus
+            recruitment and outsourced staffing requirements throughout India.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -285,8 +337,9 @@ const Services = () => {
 
             <p className="mt-6 leading-8 text-slate-600">
               We help organizations build productive and high-performing teams
-              through HR consulting, recruitment, contract staffing, payroll
-              management, hospitality staffing and workforce outsourcing.
+              through HR consulting, recruitment, IT project support, corporate
+              training, contract staffing, payroll management, hospitality
+              staffing and workforce outsourcing.
             </p>
 
             <p className="mt-4 leading-8 text-slate-600">
@@ -300,6 +353,7 @@ const Services = () => {
                 "25+ years of industry expertise",
                 "PAN India recruitment support",
                 "IT and non-IT hiring",
+                "Corporate & soft-skills training",
                 "Flexible staffing models",
                 "Quality candidate screening",
                 "Dedicated client support",
@@ -346,12 +400,13 @@ const Services = () => {
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] md:text-5xl">
-              End-to-end HR and staffing support
+              End-to-end HR, training and staffing support
             </h2>
 
             <p className="mt-5 leading-7 text-slate-600">
-              Explore our specialized recruitment, manpower management,
-              outsourcing and consulting solutions.
+              Explore our specialized recruitment, IT project & developer
+              staffing, corporate training, manpower management, outsourcing
+              and consulting solutions.
             </p>
           </div>
 
@@ -552,8 +607,8 @@ const Services = () => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl leading-8 text-orange-50">
-            Share your hiring, staffing, outsourcing or campus recruitment
-            requirements with our team.
+            Share your hiring, staffing, training, outsourcing or campus
+            recruitment requirements with our team.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">

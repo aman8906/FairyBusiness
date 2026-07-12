@@ -4,14 +4,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   BriefcaseBusiness,
   ChevronDown,
+  Code2,
+  FolderKanban,
   GraduationCap,
-  Handshake,
   Hotel,
   Laptop,
   Menu,
   Phone,
+  Presentation,
   UserCheck,
-  UsersRound,
+  UserPlus,
   X,
 } from "lucide-react";
 
@@ -32,22 +34,28 @@ const serviceLinks = [
     icon: UserCheck,
   },
   {
-    name: "Recruitment Services",
-    path: "/services?service=Recruitment%20Services",
-    match: "Recruitment Services",
-    icon: UsersRound,
-  },
-  {
     name: "IT Recruitment",
     path: "/services?service=IT%20Recruitment",
     match: "IT Recruitment",
     icon: Laptop,
   },
   {
-    name: "Non-IT Recruitment",
-    path: "/services?service=Non-IT%20Recruitment",
-    match: "Non-IT Recruitment",
-    icon: Handshake,
+    name: "IT Project Handling",
+    path: "/services?service=IT%20Project%20Handling",
+    match: "IT Project Handling",
+    icon: FolderKanban,
+  },
+  {
+    name: "Software Developer",
+    path: "/services?service=Software%20Developer",
+    match: "Software Developer",
+    icon: Code2,
+  },
+  {
+    name: "Corporate Training",
+    path: "/services?service=Corporate%20Training",
+    match: "Corporate Training",
+    icon: Presentation,
   },
   {
     name: "Hospitality Staffing",
@@ -56,16 +64,16 @@ const serviceLinks = [
     icon: Hotel,
   },
   {
-    name: "Outsourcing Solutions",
-    path: "/services?service=Outsourcing%20Solutions",
-    match: "Outsourcing Solutions",
-    icon: BriefcaseBusiness,
+    name: "Campus Hiring",
+    path: "/services?service=Campus%20Hiring",
+    match: "Campus Hiring",
+    icon: GraduationCap,
   },
   {
-    name: "Campus Hiring",
-    path: "/services?service=Campus%20Hiring%20%26%20Placement",
-    match: "Campus Hiring & Placement",
-    icon: GraduationCap,
+    name: "Placement Support",
+    path: "/services?service=Placement%20Support",
+    match: "Placement Support",
+    icon: UserPlus,
   },
 ];
 
@@ -210,21 +218,21 @@ const Navbar = () => {
         <Link
           to="/"
           className="flex min-w-0 shrink-0 items-center gap-3"
-          aria-label="FBS Management Consultancy home"
+          aria-label="Fairy Business Services home"
         >
           <motion.img
             whileHover={{ scale: 1.04 }}
             transition={{ duration: 0.2 }}
             src={logo}
-            alt="FBS Management Consultancy"
+            alt="Fairy Business Services"
             className="h-11 w-auto max-w-[130px] object-contain sm:h-12 lg:h-14"
           />
 
           <div className="hidden xl:block">
             <p className="text-sm font-bold leading-tight text-[#062c54]">
-              FBS Management
+              Fairy Business
             </p>
-            <p className="text-xs font-medium text-orange-500">Consultancy</p>
+            <p className="text-xs font-medium text-orange-500">Services</p>
           </div>
         </Link>
 
@@ -312,7 +320,7 @@ const Navbar = () => {
                     <div className="relative overflow-hidden rounded-xl">
                       <img
                         src={teamPhoto}
-                        alt="FBS Management Consultancy team"
+                        alt="Fairy Business Services team"
                         className="h-full w-full object-cover"
                       />
 
@@ -416,12 +424,12 @@ const Navbar = () => {
                 <Link to="/" onClick={() => setOpen(false)} className="flex min-w-0 items-center gap-3">
                   <img
                     src={logo}
-                    alt="FBS Management Consultancy"
+                    alt="Fairy Business Services"
                     className="h-11 w-auto max-w-[120px] object-contain"
                   />
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-bold text-[#062c54]">FBS Management</p>
-                    <p className="text-xs font-medium text-orange-500">Consultancy</p>
+                    <p className="truncate text-sm font-bold text-[#062c54]">Fairy Business</p>
+                    <p className="text-xs font-medium text-orange-500">Services</p>
                   </div>
                 </Link>
 
@@ -565,16 +573,18 @@ const Navbar = () => {
                   >
                     <img
                       src={teamPhoto}
-                      alt="FBS Management Consultancy team"
+                      alt="Fairy Business Services team"
                       className="h-32 w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/80 to-[#062c54]/20" />
                     <div className="absolute inset-0 flex flex-col justify-end p-5 text-white">
                       <p className="text-sm font-semibold text-orange-300">
-                        FBS Management Consultancy
+                        Fairy Business Services
                       </p>
                       <p className="mt-2 text-sm leading-6 text-slate-200">
-                        HR Consulting, Recruitment, IT Hiring, Non-IT Hiring, Hospitality Staffing and Outsourcing.
+                        HR Consulting, Recruitment, IT Hiring, IT Project Handling, Software
+                        Developers, Corporate Training, Hospitality Staffing, Campus Hiring
+                        and Placement Support.
                       </p>
                     </div>
                   </motion.div>

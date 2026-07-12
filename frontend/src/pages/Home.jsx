@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   ChevronDown,
   Clock3,
+  Code2,
   GraduationCap,
   Handshake,
   Headphones,
@@ -16,6 +17,7 @@ import {
   Laptop,
   MapPinned,
   Network,
+  Presentation,
   Search,
   ShieldCheck,
   Sparkles,
@@ -62,6 +64,17 @@ const services = [
     ],
   },
   {
+    icon: Code2,
+    title: "IT Project & Software Development",
+    description:
+      "Dedicated IT project handling and software developer staffing for web, mobile and full-stack technology needs.",
+    points: [
+      "IT project resource staffing",
+      "Full-stack & backend developers",
+      "Agile project coordination",
+    ],
+  },
+  {
     icon: UsersRound,
     title: "Non-IT Recruitment",
     description:
@@ -70,6 +83,17 @@ const services = [
       "Sales and marketing",
       "Accounts and finance",
       "HR and administration",
+    ],
+  },
+  {
+    icon: Presentation,
+    title: "Corporate Training",
+    description:
+      "Customized corporate training programs designed around each client's needs, including soft skills and specialized workplace training.",
+    points: [
+      "Soft-skills training",
+      "NLP, POSH & TTT programs",
+      "Customized as per client need",
     ],
   },
   {
@@ -108,7 +132,7 @@ const recruitmentCategories = [
       "DevOps Engineers",
       "QA/Test Engineers",
       "Cybersecurity Professionals",
-      "Project Managers",
+      "IT Project Managers",
     ],
   },
   {
@@ -137,6 +161,20 @@ const recruitmentCategories = [
       "Stewards & Waiters",
       "Maintenance Staff",
       "Supervisors & Managers",
+    ],
+  },
+  {
+    icon: Presentation,
+    title: "Corporate Training",
+    roles: [
+      "Soft-Skills Trainer",
+      "NLP Trainer",
+      "POSH Trainer",
+      "TTT (Train the Trainer)",
+      "Communication Skills",
+      "Leadership Development",
+      "Behavioral Training",
+      "Customized Client Programs",
     ],
   },
 ];
@@ -214,7 +252,7 @@ const whyChooseUs = [
 const testimonials = [
   {
     review:
-      "FBS Management Consultancy helped us identify suitable candidates quickly and handled the coordination professionally.",
+      "Fairy Business Services helped us identify suitable candidates quickly and handled the coordination professionally.",
     name: "Corporate Client",
     role: "HR Manager",
   },
@@ -234,7 +272,7 @@ const testimonials = [
 
 const faqs = [
   {
-    question: "Which industries does FBS Management Consultancy serve?",
+    question: "Which industries does Fairy Business Services serve?",
     answer:
       "We provide recruitment and workforce solutions across IT, hospitality, healthcare, retail, FMCG, manufacturing, engineering, logistics, finance, administration, sales and marketing.",
   },
@@ -252,6 +290,16 @@ const faqs = [
     question: "Do you provide campus hiring and placement support?",
     answer:
       "Yes. We collaborate with colleges, universities and technical institutes to organize campus recruitment and placement drives.",
+  },
+  {
+    question: "Do you handle IT projects and provide software developers?",
+    answer:
+      "Yes. We provide dedicated resource support for IT project handling along with skilled software developers across web, mobile, backend and full-stack technologies.",
+  },
+  {
+    question: "Do you offer corporate training programs?",
+    answer:
+      "Yes. We offer corporate training including soft-skills training, NLP, POSH and TTT (Train the Trainer) programs, customized according to each client's needs.",
   },
   {
     question: "Do you provide hospitality staffing?",
@@ -284,8 +332,9 @@ const Home = () => {
             </h1>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              FBS Management Consultancy provides HR consulting, recruitment,
-              IT hiring, non-IT hiring, hospitality staffing, campus placement
+              Fairy Business Services provides HR consulting, recruitment, IT
+              hiring, IT project handling, software developers, corporate
+              training, hospitality staffing, campus hiring, placement support
               and outsourcing solutions across India.
             </p>
 
@@ -334,7 +383,7 @@ const Home = () => {
             <div className="rounded-[2rem] bg-[#062c54] p-6 shadow-2xl sm:p-8">
               <div className="mb-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
-                  FBS Management Consultancy
+                  Fairy Business Services
                 </p>
 
                 <h2 className="mt-3 text-3xl font-bold text-white">
@@ -420,7 +469,7 @@ const Home = () => {
 
           <div className="pt-10 lg:pt-0">
             <p className="font-semibold uppercase tracking-[0.2em] text-orange-500">
-              About FBS
+              About Fairy Business Services
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] md:text-5xl">
@@ -428,15 +477,16 @@ const Home = () => {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              FBS Management Consultancy is an HR consulting, recruitment and
-              outsourcing company committed to helping businesses build
-              capable, productive and reliable teams.
+              Fairy Business Services is an HR consulting, recruitment,
+              corporate training and outsourcing company committed to helping
+              businesses build capable, productive and reliable teams.
             </p>
 
             <p className="mt-4 leading-8 text-slate-600">
               Through a client-centric approach and deep industry expertise, we
-              deliver customized manpower solutions that reduce hiring time,
-              improve workforce performance and create long-term business value.
+              deliver customized manpower and training solutions that reduce
+              hiring time, improve workforce performance and create long-term
+              business value.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -463,7 +513,7 @@ const Home = () => {
               to="/about"
               className="mt-8 inline-flex items-center gap-2 font-semibold text-orange-600 transition hover:text-orange-700"
             >
-              Learn more about FBS
+              Learn more about Fairy Business Services
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -483,8 +533,9 @@ const Home = () => {
             </h2>
 
             <p className="mt-5 leading-7 text-slate-600">
-              From workforce strategy and recruitment to payroll, hospitality
-              staffing and outsourced manpower management.
+              From workforce strategy and recruitment to IT project staffing,
+              corporate training, payroll, hospitality staffing and outsourced
+              manpower management.
             </p>
           </div>
 
@@ -551,7 +602,8 @@ const Home = () => {
 
           <p className="mx-auto mt-5 max-w-3xl leading-7 text-slate-600">
             We source and screen professionals for technical, non-technical and
-            hospitality roles at different experience levels.
+            hospitality roles, and deliver customized corporate training at
+            different experience levels.
           </p>
         </div>
 
@@ -591,7 +643,7 @@ const Home = () => {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2">
           <div>
             <p className="font-semibold uppercase tracking-[0.2em] text-orange-300">
-              Campus Hiring & Placement
+              Campus Hiring & Placement Support
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold md:text-5xl">
@@ -599,9 +651,9 @@ const Home = () => {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-300">
-              FBS Management Consultancy partners with colleges, universities
-              and technical institutes across India to organize campus
-              recruitment and placement drives.
+              Fairy Business Services partners with colleges, universities and
+              technical institutes across India to organize campus recruitment
+              and placement drives.
             </p>
 
             <p className="mt-4 leading-8 text-slate-300">
@@ -735,7 +787,7 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-5">
           <div className="mb-12 text-center">
             <p className="font-semibold uppercase tracking-[0.2em] text-orange-500">
-              Why Choose FBS
+              Why Choose Fairy Business Services
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] md:text-5xl">
@@ -782,8 +834,8 @@ const Home = () => {
 
             <p className="mt-5 leading-8 text-slate-300">
               To empower organizations by providing exceptional HR consulting,
-              recruitment and outsourcing solutions that drive business growth
-              and create long-term value.
+              recruitment, corporate training and outsourcing solutions that
+              drive business growth and create long-term value.
             </p>
           </article>
 
@@ -918,8 +970,8 @@ const Home = () => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl leading-8 text-orange-50">
-            Share your recruitment, staffing, outsourcing or campus hiring
-            requirements with our team.
+            Share your recruitment, staffing, training, outsourcing or campus
+            hiring requirements with our team.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
