@@ -195,49 +195,59 @@ const Navbar = () => {
   };
 
   const navLinkClass = (path) =>
-    `group relative py-2 font-medium transition-colors duration-300 ${
-      isActive(path) ? "text-orange-600" : "text-slate-700 hover:text-orange-600"
+    `group relative rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
+      isActive(path)
+        ? "bg-[#062c54] text-white shadow-md"
+        : "text-slate-700 hover:bg-orange-50 hover:text-orange-600"
     }`;
 
-  const underlineClass = (path) =>
-    `absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-orange-500 transition-all duration-300 ${
-      isActive(path) ? "w-full" : "w-0 group-hover:w-full"
-    }`;
+  const underlineClass = () => "hidden";
 
   return (
     <motion.nav
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-shadow duration-300 ${
-        scrolled ? "shadow-md" : ""
+      className={`sticky top-0 z-50 border-b border-white/70 bg-white/90 backdrop-blur-2xl transition-all duration-300 ${
+        scrolled
+          ? "shadow-[0_14px_40px_rgba(15,23,42,0.12)]"
+          : "shadow-[0_6px_24px_rgba(15,23,42,0.06)]"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-5 lg:px-8">
+      <div className="h-1 w-full bg-gradient-to-r from-orange-500 via-amber-400 to-[#062c54]" />
+
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           to="/"
-          className="flex min-w-0 shrink-0 items-center gap-3"
+          className="group flex min-w-0 shrink-0 items-center gap-3"
           aria-label="Fairy Business Services home"
         >
-          <motion.img
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.2 }}
-            src={logo}
-            alt="Fairy Business Services"
-            className="h-11 w-auto max-w-[130px] object-contain sm:h-12 lg:h-14"
-          />
+          <motion.div
+            whileHover={{ scale: 1.035, y: -1 }}
+            transition={{ duration: 0.22 }}
+            className="relative flex items-center rounded-2xl bg-gradient-to-br from-white via-orange-50 to-white px-3 py-2 shadow-[0_8px_24px_rgba(249,115,22,0.14)] ring-1 ring-orange-100"
+          >
+            <span className="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-orange-400/30 to-blue-900/20 opacity-0 blur transition-opacity duration-300 group-hover:opacity-100" />
+            <img
+              src={logo}
+              alt="Fairy Business Services"
+              className="relative h-14 w-auto max-w-[180px] object-contain sm:h-16 lg:h-[72px] lg:max-w-[220px]"
+            />
+          </motion.div>
 
-          <div className="hidden xl:block">
-            <p className="text-sm font-bold leading-tight text-[#062c54]">
+          <div className="hidden 2xl:block">
+            <p className="text-base font-extrabold leading-tight tracking-tight text-[#062c54]">
               Fairy Business
             </p>
-            <p className="text-xs font-medium text-orange-500">Services</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
+              Services
+            </p>
           </div>
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <div className="hidden items-center gap-1 rounded-full border border-slate-200/80 bg-white/80 p-1.5 shadow-sm lg:flex">
           <Link to="/" className={navLinkClass("/")}>
             Home
             <span className={underlineClass("/")} />
@@ -253,8 +263,10 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setServicesOpen((previous) => !previous)}
-              className={`flex items-center gap-1.5 py-2 font-medium transition-colors duration-300 ${
-                isServicesActive ? "text-orange-600" : "text-slate-700 hover:text-orange-600"
+              className={`flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                isServicesActive
+                  ? "bg-[#062c54] text-white shadow-md"
+                  : "text-slate-700 hover:bg-orange-50 hover:text-orange-600"
               }`}
               aria-expanded={servicesOpen}
               aria-haspopup="menu"
@@ -277,7 +289,7 @@ const Navbar = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute left-1/2 top-full mt-3 w-[680px] -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-2xl"
+                  className="absolute left-1/2 top-full mt-4 w-[760px] -translate-x-1/2 overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/95 p-4 shadow-[0_24px_70px_rgba(15,23,42,0.18)] backdrop-blur-2xl"
                 >
                   <div className="grid grid-cols-[1.4fr_1fr] gap-3">
                     <div className="grid grid-cols-2 gap-2">
@@ -357,17 +369,20 @@ const Navbar = () => {
 
           <a
             href="tel:+918890628049"
-            className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-[#062c54] transition-colors hover:text-orange-600"
+            className="hidden items-center gap-2 whitespace-nowrap rounded-full px-3 py-2 text-sm font-bold text-[#062c54] transition-all hover:bg-orange-50 hover:text-orange-600 xl:flex"
           >
-            <Phone size={17} />
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+              <Phone size={16} />
+            </span>
             +91 88906 28049
           </a>
 
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/contact"
-              className="inline-flex whitespace-nowrap rounded-full bg-orange-500 px-5 py-2.5 font-semibold text-white shadow-md transition-colors duration-300 hover:bg-orange-600 hover:shadow-lg"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(249,115,22,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 hover:shadow-[0_14px_30px_rgba(249,115,22,0.38)]"
             >
+              <UserCheck size={17} />
               Hire Talent
             </Link>
           </motion.div>
@@ -376,7 +391,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-[#062c54] transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600 lg:hidden"
+          className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-100 bg-orange-50 text-[#062c54] shadow-sm transition-all hover:border-orange-300 hover:bg-orange-100 hover:text-orange-600 lg:hidden"
           onClick={() => setOpen((previous) => !previous)}
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
@@ -417,15 +432,15 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed right-0 top-0 z-50 h-dvh w-[88%] max-w-sm bg-white shadow-2xl lg:hidden"
+              className="fixed right-0 top-0 z-50 h-dvh w-[92%] max-w-md overflow-hidden bg-white shadow-[0_0_60px_rgba(15,23,42,0.25)] lg:hidden"
               aria-hidden={!open}
             >
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-slate-200 bg-gradient-to-r from-orange-50 via-white to-blue-50 px-5 py-4">
                 <Link to="/" onClick={() => setOpen(false)} className="flex min-w-0 items-center gap-3">
                   <img
                     src={logo}
                     alt="Fairy Business Services"
-                    className="h-11 w-auto max-w-[120px] object-contain"
+                    className="h-16 w-auto max-w-[190px] object-contain"
                   />
                   <div className="min-w-0">
                     <p className="truncate text-sm font-bold text-[#062c54]">Fairy Business</p>
@@ -582,9 +597,9 @@ const Navbar = () => {
                         Fairy Business Services
                       </p>
                       <p className="mt-2 text-sm leading-6 text-slate-200">
-                        HR Consulting, Recruitment, IT Hiring, IT Project Handling, Software
-                        Developers, Corporate Training, Hospitality Staffing, Campus Hiring
-                        and Placement Support.
+                        Recruitment, IT Project Handling, Software Development,
+                        Corporate Training, Hospitality Staffing, Campus Hiring
+                        and Placement Support—all under one trusted brand.
                       </p>
                     </div>
                   </motion.div>

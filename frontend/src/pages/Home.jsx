@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Award,
   BriefcaseBusiness,
   Building2,
@@ -308,6 +310,33 @@ const faqs = [
   },
 ];
 
+const workGallery = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80&auto=format&fit=crop",
+    title: "IT Project & Software Development",
+    tag: "Software Developer",
+    description:
+      "Dedicated developers and project resources for your web, mobile and full-stack builds.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&auto=format&fit=crop",
+    title: "Corporate Training",
+    tag: "Soft-Skills · NLP · POSH · TTT",
+    description:
+      "Live, instructor-led training sessions customized around your team's goals.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1607013407627-6ee814329547?w=900&q=80&auto=format&fit=crop",
+    title: "Campus Hiring & Placement",
+    tag: "Campus Hiring",
+    description:
+      "Recruitment drives and placement support connecting institutes with employers.",
+  },
+];
+
 const Home = () => {
   const [openFaq, setOpenFaq] = useState(0);
 
@@ -379,71 +408,81 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="rounded-[2rem] bg-[#062c54] p-6 shadow-2xl sm:p-8">
-              <div className="mb-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative"
+          >
+            <div className="group relative overflow-hidden rounded-[2rem] shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=80&auto=format&fit=crop"
+                alt="Fairy Business Services recruitment and HR consulting team at work"
+                loading="lazy"
+                className="h-[480px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 sm:h-[540px]"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/35 to-transparent" />
+
+              <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-[#062c54] shadow-lg backdrop-blur">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+                </span>
+                Actively Hiring Across India
+              </div>
+
+              <div className="absolute inset-x-6 bottom-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
                   Fairy Business Services
                 </p>
-
-                <h2 className="mt-3 text-3xl font-bold text-white">
+                <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
                   Comprehensive HR & Staffing Solutions
                 </h2>
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  {
-                    icon: Award,
-                    value: "25+",
-                    label: "Years of Expertise",
-                  },
-                  {
-                    icon: MapPinned,
-                    value: "PAN India",
-                    label: "Recruitment Support",
-                  },
-                  {
-                    icon: UsersRound,
-                    value: "IT & Non-IT",
-                    label: "Hiring Expertise",
-                  },
-                  {
-                    icon: ShieldCheck,
-                    value: "Flexible",
-                    label: "Staffing Models",
-                  },
-                ].map(({ icon: Icon, value, label }) => (
-                  <div
-                    key={label}
-                    className="rounded-2xl border border-white/10 bg-white/10 p-5 text-white backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/15"
-                  >
-                    <Icon className="text-orange-300" size={27} />
-
-                    <h3 className="mt-4 text-xl font-bold">{value}</h3>
-
-                    <p className="mt-1 text-sm leading-5 text-slate-300">
-                      {label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-5 rounded-2xl bg-orange-500 p-5 text-white">
-                <p className="text-sm font-medium text-orange-100">
-                  Need qualified professionals?
-                </p>
-
-                <Link
-                  to="/contact"
-                  className="mt-2 inline-flex items-center gap-2 font-bold"
-                >
-                  Share your hiring requirement
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
             </div>
-          </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="absolute -bottom-8 -left-4 grid grid-cols-2 gap-3 sm:-left-8 sm:gap-4"
+            >
+              {[
+                { icon: Award, value: "25+", label: "Years" },
+                { icon: MapPinned, value: "PAN India", label: "Support" },
+              ].map(({ icon: Icon, value, label }) => (
+                <div
+                  key={label}
+                  className="rounded-2xl border border-slate-100 bg-white p-4 shadow-xl transition duration-300 hover:-translate-y-1"
+                >
+                  <Icon className="text-orange-500" size={22} />
+                  <h3 className="mt-2 text-lg font-bold text-[#062c54]">
+                    {value}
+                  </h3>
+                  <p className="text-xs leading-4 text-slate-500">{label}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="absolute -right-4 -top-6 hidden rounded-2xl bg-orange-500 p-4 text-white shadow-xl sm:-right-6 sm:block"
+            >
+              <p className="text-xs font-medium text-orange-100">
+                Need qualified professionals?
+              </p>
+              <Link
+                to="/contact"
+                className="mt-1 inline-flex items-center gap-1.5 text-sm font-bold"
+              >
+                Share requirement
+                <ArrowRight size={15} />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -451,12 +490,14 @@ const Home = () => {
       <section className="mx-auto max-w-7xl px-5 py-20">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=80&auto=format&fit=crop"
-              alt="Professional recruitment and human resource consulting team"
-              loading="lazy"
-              className="h-[470px] w-full rounded-[2rem] object-cover shadow-xl"
-            />
+            <div className="group h-[470px] w-full overflow-hidden rounded-[2rem] shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=80&auto=format&fit=crop"
+                alt="Professional recruitment and human resource consulting team"
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+            </div>
 
             <div className="absolute -bottom-8 right-4 max-w-xs rounded-2xl bg-orange-500 p-6 text-white shadow-xl sm:right-8">
               <Users size={34} />
@@ -589,6 +630,64 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Work in Action Gallery */}
+      <section className="mx-auto max-w-7xl px-5 py-20">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="font-semibold uppercase tracking-[0.2em] text-orange-500">
+            Our Work in Action
+          </p>
+
+          <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] md:text-5xl">
+            Real teams, real training, real placements
+          </h2>
+
+          <p className="mt-5 leading-7 text-slate-600">
+            A closer look at how we support IT projects, corporate training
+            and campus placements for our clients.
+          </p>
+        </div>
+
+        <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          {workGallery.map(({ image, title, tag, description }) => (
+            <article
+              key={title}
+              className="group relative overflow-hidden rounded-3xl shadow-lg"
+            >
+              <div className="h-72 w-full overflow-hidden">
+                <img
+                  src={image}
+                  alt={title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+              </div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/40 to-transparent transition-opacity duration-300 group-hover:from-[#062c54]/95" />
+
+              <span className="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-orange-600 shadow-sm">
+                {tag}
+              </span>
+
+              <div className="absolute inset-x-5 bottom-5 text-white">
+                <h3 className="text-lg font-bold">{title}</h3>
+
+                <p className="mt-2 max-h-0 overflow-hidden text-sm leading-6 text-slate-200 opacity-0 transition-all duration-300 group-hover:mt-2 group-hover:max-h-24 group-hover:opacity-100">
+                  {description}
+                </p>
+
+                <Link
+                  to="/contact"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-300 transition group-hover:text-orange-200"
+                >
+                  Enquire Now
+                  <ArrowUpRight size={15} />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Recruitment Categories */}
       <section className="mx-auto max-w-7xl px-5 py-20">
         <div className="mb-12 text-center">
@@ -693,50 +792,62 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="relative rounded-[2rem] border border-white/10 bg-white/10 p-8 backdrop-blur">
-            <GraduationCap size={52} className="text-orange-300" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-xl">
+            <div className="group h-64 w-full overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1607013407627-6ee814329547?w=1000&q=80&auto=format&fit=crop"
+                alt="Graduating students celebrating campus placement"
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062c54] to-transparent" />
+            </div>
 
-            <h3 className="mt-5 text-3xl font-bold">
-              Campus Recruitment Support
-            </h3>
+            <div className="bg-white/10 p-8 backdrop-blur">
+              <GraduationCap size={44} className="text-orange-300" />
 
-            <p className="mt-4 leading-8 text-slate-300">
-              Structured coordination between institutions, students and
-              employers for efficient placement drives.
-            </p>
+              <h3 className="mt-5 text-2xl font-bold sm:text-3xl">
+                Campus Recruitment Support
+              </h3>
 
-            <div className="mt-7 space-y-4">
-              {[
-                {
-                  icon: Network,
-                  title: "Institution Collaboration",
-                  text: "Partnerships with colleges and technical institutes.",
-                },
-                {
-                  icon: Users,
-                  title: "Talent Identification",
-                  text: "Screening and shortlisting capable graduates.",
-                },
-                {
-                  icon: Handshake,
-                  title: "Employer Connection",
-                  text: "Connecting students with suitable organizations.",
-                },
-              ].map(({ icon: Icon, title, text }) => (
-                <div
-                  key={title}
-                  className="flex gap-4 rounded-2xl bg-white/10 p-5"
-                >
-                  <Icon className="shrink-0 text-orange-300" size={26} />
+              <p className="mt-4 leading-7 text-slate-300">
+                Structured coordination between institutions, students and
+                employers for efficient placement drives.
+              </p>
 
-                  <div>
-                    <h4 className="font-bold">{title}</h4>
-                    <p className="mt-1 text-sm leading-6 text-slate-300">
-                      {text}
-                    </p>
+              <div className="mt-7 space-y-4">
+                {[
+                  {
+                    icon: Network,
+                    title: "Institution Collaboration",
+                    text: "Partnerships with colleges and technical institutes.",
+                  },
+                  {
+                    icon: Users,
+                    title: "Talent Identification",
+                    text: "Screening and shortlisting capable graduates.",
+                  },
+                  {
+                    icon: Handshake,
+                    title: "Employer Connection",
+                    text: "Connecting students with suitable organizations.",
+                  },
+                ].map(({ icon: Icon, title, text }) => (
+                  <div
+                    key={title}
+                    className="flex gap-4 rounded-2xl bg-white/10 p-5"
+                  >
+                    <Icon className="shrink-0 text-orange-300" size={26} />
+
+                    <div>
+                      <h4 className="font-bold">{title}</h4>
+                      <p className="mt-1 text-sm leading-6 text-slate-300">
+                        {text}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

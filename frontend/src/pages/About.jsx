@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Award,
   BriefcaseBusiness,
   CheckCircle2,
@@ -145,14 +147,44 @@ const leadership = [
   },
 ];
 
+const workGallery = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80&auto=format&fit=crop",
+    title: "IT Project & Software Development",
+    tag: "Software Developer",
+    description:
+      "Dedicated developers and project resources for your web, mobile and full-stack builds.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&auto=format&fit=crop",
+    title: "Corporate Training",
+    tag: "Soft-Skills · NLP · POSH · TTT",
+    description:
+      "Live, instructor-led training sessions customized around your team's goals.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1607013407627-6ee814329547?w=900&q=80&auto=format&fit=crop",
+    title: "Campus Hiring & Placement",
+    tag: "Campus Hiring",
+    description:
+      "Recruitment drives and placement support connecting institutes with employers.",
+  },
+];
+
 const About = () => {
   return (
     <main className="min-h-screen overflow-hidden bg-white text-slate-900">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <img
+        <motion.img
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80&auto=format&fit=crop"
           alt="Fairy Business Services recruitment and HR consulting team"
+          initial={{ scale: 1.12 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 12, ease: "easeOut" }}
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
 
@@ -224,12 +256,14 @@ const About = () => {
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=80&auto=format&fit=crop"
-              alt="Professional HR consulting meeting"
-              loading="lazy"
-              className="h-[500px] w-full rounded-[2rem] object-cover shadow-2xl"
-            />
+            <div className="group h-[500px] w-full overflow-hidden rounded-[2rem] shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=80&auto=format&fit=crop"
+                alt="Professional HR consulting meeting"
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+            </div>
 
             <div className="absolute -bottom-8 left-5 right-5 rounded-2xl bg-orange-500 p-6 text-white shadow-xl sm:left-auto sm:right-8 sm:max-w-sm">
               <Globe2 size={34} />
@@ -334,6 +368,64 @@ const About = () => {
               ),
             )}
           </div>
+        </div>
+      </section>
+
+      {/* Our Work in Action */}
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="font-semibold uppercase tracking-[0.2em] text-orange-500">
+            Our Work in Action
+          </p>
+
+          <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] sm:text-4xl md:text-5xl">
+            Real teams, real training, real placements
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-3xl leading-7 text-slate-600">
+            A closer look at how Fairy Business Services supports IT projects,
+            corporate training and campus placements for our clients.
+          </p>
+        </div>
+
+        <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          {workGallery.map(({ image, title, tag, description }) => (
+            <article
+              key={title}
+              className="group relative overflow-hidden rounded-3xl shadow-lg"
+            >
+              <div className="h-72 w-full overflow-hidden">
+                <img
+                  src={image}
+                  alt={title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+              </div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/40 to-transparent transition-opacity duration-300 group-hover:from-[#062c54]/95" />
+
+              <span className="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-orange-600 shadow-sm">
+                {tag}
+              </span>
+
+              <div className="absolute inset-x-5 bottom-5 text-white">
+                <h3 className="text-lg font-bold">{title}</h3>
+
+                <p className="mt-2 max-h-0 overflow-hidden text-sm leading-6 text-slate-200 opacity-0 transition-all duration-300 group-hover:mt-2 group-hover:max-h-24 group-hover:opacity-100">
+                  {description}
+                </p>
+
+                <Link
+                  to="/contact"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-300 transition group-hover:text-orange-200"
+                >
+                  Enquire Now
+                  <ArrowUpRight size={15} />
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -466,7 +558,7 @@ const About = () => {
                 key={name}
                 className="group rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#062c54] text-orange-300 transition group-hover:bg-orange-500 group-hover:text-white">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#062c54] text-orange-300 transition duration-300 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white">
                   <Icon size={36} />
                 </div>
 
