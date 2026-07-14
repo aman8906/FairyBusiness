@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import BackToTop from "./components/BackToTop";
+import FloatingContact from "./components/FloatingContact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -26,6 +28,8 @@ function App() {
         <Route path="/terms" element={<Terms />} />
       </Routes>
       <Footer />
+      <FloatingContact/>
+      <BackToTop />
     </>
   );
 }

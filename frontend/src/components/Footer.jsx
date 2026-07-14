@@ -9,34 +9,14 @@ import {
 import logo from "../assets/logo.png";
 
 const services = [
-  {
-    label: "All Services",
-    to: "/services",
-  },
-  {
-    label: "HR Consulting",
-    to: "/services?service=HR%20Consulting",
-  },
-  {
-    label: "Recruitment Services",
-    to: "/services?service=Recruitment%20Services",
-  },
-  {
-    label: "IT Recruitment",
-    to: "/services?service=IT%20Recruitment",
-  },
-  {
-    label: "Non-IT Recruitment",
-    to: "/services?service=Non-IT%20Recruitment",
-  },
-  {
-    label: "Hospitality Staffing",
-    to: "/services?service=Hospitality%20Staffing",
-  },
-  {
-    label: "Outsourcing Solutions",
-    to: "/services?service=Outsourcing%20Solutions",
-  },
+  { label: "All Services", to: "/services" },
+  { label: "HR Consulting", to: "/services?service=HR%20Consulting" },
+  { label: "IT Recruitment", to: "/services?service=IT%20Recruitment" },
+  { label: "IT Project Handling", to: "/services?service=IT%20Project%20Handling" },
+  { label: "Software Development", to: "/services?service=Software%20Development" },
+  { label: "Corporate Training", to: "/services?service=Corporate%20Training" },
+  { label: "Soft Skills Training", to: "/services?service=Soft%20Skills%20Training" },
+  { label: "NLP, POSH & TTT", to: "/services?service=Corporate%20Training" },
 ];
 
 const companyLinks = [
@@ -59,30 +39,12 @@ const companyLinks = [
 ];
 
 const hiringLinks = [
-  {
-    label: "Permanent Staffing",
-    to: "/services?service=Permanent%20Staffing",
-  },
-  {
-    label: "Executive Search",
-    to: "/services?service=Executive%20Search",
-  },
-  {
-    label: "Bulk Hiring",
-    to: "/services?service=Bulk%20Hiring",
-  },
-  {
-    label: "Contract Staffing",
-    to: "/services?service=Contract%20Staffing",
-  },
-  {
-    label: "Campus Hiring",
-    to: "/services?service=Campus%20Hiring%20%26%20Placement",
-  },
-  {
-    label: "Payroll Management",
-    to: "/services?service=Payroll%20Management",
-  },
+  { label: "Campus Hiring", to: "/services?service=Campus%20Hiring" },
+  { label: "Placement Support", to: "/services?service=Placement%20Support" },
+  { label: "Permanent Staffing", to: "/services?service=Permanent%20Staffing" },
+  { label: "Executive Search", to: "/services?service=Executive%20Search" },
+  { label: "Bulk Hiring", to: "/services?service=Bulk%20Hiring" },
+  { label: "Contract Staffing", to: "/services?service=Contract%20Staffing" },
 ];
 
 const socials = [
@@ -113,43 +75,47 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#041f3b] text-white">
+    <footer className="relative overflow-hidden bg-[#041f3b] text-white">
+      <div className="pointer-events-none absolute -left-24 top-12 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-20 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="h-1 w-full bg-gradient-to-r from-orange-500 via-amber-400 to-blue-500" />
+
       {/* Main Footer */}
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Company Information */}
           <div className="sm:col-span-2 lg:col-span-2">
             <Link
               to="/"
               className="inline-flex items-center gap-3"
-              aria-label="FBS Management Consultancy home"
+              aria-label="Fairy Business Services home"
             >
               <img
                 src={logo}
-                alt="FBS Management Consultancy"
-                className="h-16 w-auto max-w-[150px] rounded-xl bg-white p-2 object-contain"
+                alt="Fairy Business Services"
+                className="h-20 w-auto max-w-[220px] rounded-2xl bg-white p-3 object-contain shadow-xl ring-1 ring-white/20 sm:h-24"
               />
 
               <div className="hidden sm:block">
                 <p className="font-bold leading-tight text-white">
-                  FBS Management
+                  Fairy Business
                 </p>
 
                 <p className="text-sm font-medium text-orange-300">
-                  Consultancy
+                  Services
                 </p>
               </div>
             </Link>
 
             <p className="mt-5 max-w-md leading-7 text-slate-300">
-              FBS Management Consultancy provides HR consulting, recruitment,
+              Fairy Business Services provides HR consulting, recruitment,
               IT hiring, non-IT hiring, hospitality staffing, campus placement
               and workforce outsourcing solutions across India.
             </p>
 
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-orange-300">
               <BriefcaseBusiness size={17} />
-              Connecting Talent with Opportunity
+              Recruitment • IT Projects • Software Development • Corporate Training
             </div>
 
             <div className="mt-6 flex gap-3">
@@ -241,13 +207,13 @@ const Footer = () => {
               to="/contact"
               className="mt-6 inline-flex rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"
             >
-              Hire Talent
+              Get Free Consultation
             </Link>
           </div>
         </div>
 
         {/* Contact Information */}
-        <div className="mt-12 grid gap-5 rounded-3xl border border-white/10 bg-white/5 p-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.07] p-6 shadow-2xl backdrop-blur sm:grid-cols-2 lg:grid-cols-3">
           <a
             href="tel:+918890628049"
             className="group flex items-start gap-4"
@@ -266,7 +232,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="mailto:info@fairybusinessservice.com"
+            href="mailto:fairybusinessservices@outlook.com"
             className="group flex items-start gap-4"
           >
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white">
@@ -277,7 +243,7 @@ const Footer = () => {
               <p className="text-sm text-slate-400">Email Address</p>
 
               <p className="mt-1 break-all font-semibold text-white transition group-hover:text-orange-300">
-                info@fairybusinessservice.com
+                fairybusinessservices@outlook.com
               </p>
             </div>
           </a>
@@ -307,7 +273,7 @@ const Footer = () => {
       <div className="border-t border-white/10 bg-[#03182e]">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-5 text-center text-sm text-slate-400 sm:px-6 md:flex-row md:text-left lg:px-8">
           <p>
-            © {year} FBS Management Consultancy. All rights reserved.
+            © {year} Fairy Business Services. All rights reserved.
           </p>
 
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">

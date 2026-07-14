@@ -10,6 +10,7 @@ import {
   Hotel,
   Laptop,
   Menu,
+  MessageCircle,
   Phone,
   Presentation,
   UserCheck,
@@ -46,9 +47,9 @@ const serviceLinks = [
     icon: FolderKanban,
   },
   {
-    name: "Software Developer",
-    path: "/services?service=Software%20Developer",
-    match: "Software Developer",
+    name: "Software Development",
+    path: "/services?service=Software%20Development",
+    match: "Software Development",
     icon: Code2,
   },
   {
@@ -293,50 +294,65 @@ const Navbar = () => {
                 >
                   <div className="grid grid-cols-[1.4fr_1fr] gap-3">
                     <div className="grid grid-cols-2 gap-2">
-                      {serviceLinks.map(({ name, path, icon: Icon, ...link }, index) => {
-                        const active = isServiceLinkActive({ path, ...link });
-                        return (
-                          <motion.div
-                            key={path}
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.2, delay: index * 0.03 }}
-                          >
-                            <Link
-                              to={path}
-                              role="menuitem"
-                              onClick={() => setServicesOpen(false)}
-                              className={`group flex items-center gap-3 rounded-xl px-4 py-3 transition-colors ${
-                                active
-                                  ? "bg-orange-50 text-orange-600"
-                                  : "text-slate-700 hover:bg-orange-50 hover:text-orange-600"
-                              }`}
+                      {serviceLinks.map(
+                        ({ name, path, icon: Icon, ...link }, index) => {
+                          const active = isServiceLinkActive({ path, ...link });
+                          return (
+                            <motion.div
+                              key={path}
+                              initial={{ opacity: 0, y: 8 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{
+                                duration: 0.2,
+                                delay: index * 0.03,
+                              }}
                             >
-                              <div
-                                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                              <Link
+                                to={path}
+                                role="menuitem"
+                                onClick={() => setServicesOpen(false)}
+                                className={`group flex items-center gap-3 rounded-xl px-4 py-3 transition-colors ${
                                   active
-                                    ? "bg-orange-500 text-white"
-                                    : "bg-slate-100 text-[#062c54] group-hover:bg-orange-500 group-hover:text-white"
+                                    ? "bg-orange-50 text-orange-600"
+                                    : "text-slate-700 hover:bg-orange-50 hover:text-orange-600"
                                 }`}
                               >
-                                <Icon size={20} />
-                              </div>
-                              <span className="text-sm font-semibold">{name}</span>
-                            </Link>
-                          </motion.div>
-                        );
-                      })}
+                                <div
+                                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                                    active
+                                      ? "bg-orange-500 text-white"
+                                      : "bg-slate-100 text-[#062c54] group-hover:bg-orange-500 group-hover:text-white"
+                                  }`}
+                                >
+                                  <Icon size={20} />
+                                </div>
+                                <span className="text-sm font-semibold">
+                                  {name}
+                                </span>
+                              </Link>
+                            </motion.div>
+                          );
+                        },
+                      )}
                     </div>
 
                     {/* Photo + CTA panel */}
-                    <div className="relative overflow-hidden rounded-xl">
+                    <div className="group relative overflow-hidden rounded-xl">
                       <img
                         src={teamPhoto}
                         alt="Fairy Business Services team"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       />
 
                       <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/70 to-transparent" />
+
+                      <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-[#062c54] shadow">
+                        <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                        </span>
+                        Actively Hiring
+                      </div>
 
                       <div className="absolute inset-x-0 bottom-0 p-4 text-white">
                         <p className="text-sm font-semibold">
@@ -380,10 +396,10 @@ const Navbar = () => {
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(249,115,22,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:from-orange-600 hover:to-orange-700 hover:shadow-[0_14px_30px_rgba(249,115,22,0.38)]"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-[#062c54] via-[#0b4c8c] to-[#1d72b8] px-6 py-3 text-sm font-bold text-white shadow-[0_14px_32px_rgba(6,44,84,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(6,44,84,0.36)]"
             >
-              <UserCheck size={17} />
-              Hire Talent
+              <BriefcaseBusiness size={17} />
+              Get Free Consultation
             </Link>
           </motion.div>
         </div>
@@ -436,15 +452,23 @@ const Navbar = () => {
               aria-hidden={!open}
             >
               <div className="flex items-center justify-between border-b border-slate-200 bg-gradient-to-r from-orange-50 via-white to-blue-50 px-5 py-4">
-                <Link to="/" onClick={() => setOpen(false)} className="flex min-w-0 items-center gap-3">
+                <Link
+                  to="/"
+                  onClick={() => setOpen(false)}
+                  className="flex min-w-0 items-center gap-3"
+                >
                   <img
                     src={logo}
                     alt="Fairy Business Services"
                     className="h-16 w-auto max-w-[190px] object-contain"
                   />
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-bold text-[#062c54]">Fairy Business</p>
-                    <p className="text-xs font-medium text-orange-500">Services</p>
+                    <p className="truncate text-sm font-bold text-[#062c54]">
+                      Fairy Business
+                    </p>
+                    <p className="text-xs font-medium text-orange-500">
+                      Services
+                    </p>
                   </div>
                 </Link>
 
@@ -458,7 +482,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <div className="h-[calc(100dvh-77px)] overflow-y-auto px-5 py-5">
+              <div className="h-[calc(100dvh-97px)] overflow-y-auto px-5 py-5">
                 <motion.div
                   variants={mobileListVariants}
                   initial="hidden"
@@ -485,7 +509,9 @@ const Navbar = () => {
                   <motion.button
                     variants={mobileItemVariants}
                     type="button"
-                    onClick={() => setMobileServicesOpen((previous) => !previous)}
+                    onClick={() =>
+                      setMobileServicesOpen((previous) => !previous)
+                    }
                     className={`flex items-center justify-between rounded-xl px-3 py-3 text-left font-medium transition ${
                       isServicesActive
                         ? "bg-orange-50 text-orange-600"
@@ -513,24 +539,29 @@ const Navbar = () => {
                         className="overflow-hidden"
                       >
                         <div className="mb-2 ml-3 mt-1 flex flex-col gap-1 border-l-2 border-orange-100 pl-3">
-                          {serviceLinks.map(({ name, path, icon: Icon, ...link }) => {
-                            const active = isServiceLinkActive({ path, ...link });
-                            return (
-                              <Link
-                                key={path}
-                                to={path}
-                                onClick={() => setOpen(false)}
-                                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${
-                                  active
-                                    ? "bg-orange-50 font-semibold text-orange-600"
-                                    : "text-slate-600 hover:bg-slate-50 hover:text-orange-600"
-                                }`}
-                              >
-                                <Icon size={17} />
-                                {name}
-                              </Link>
-                            );
-                          })}
+                          {serviceLinks.map(
+                            ({ name, path, icon: Icon, ...link }) => {
+                              const active = isServiceLinkActive({
+                                path,
+                                ...link,
+                              });
+                              return (
+                                <Link
+                                  key={path}
+                                  to={path}
+                                  onClick={() => setOpen(false)}
+                                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${
+                                    active
+                                      ? "bg-orange-50 font-semibold text-orange-600"
+                                      : "text-slate-600 hover:bg-slate-50 hover:text-orange-600"
+                                  }`}
+                                >
+                                  <Icon size={17} />
+                                  {name}
+                                </Link>
+                              );
+                            },
+                          )}
                         </div>
                       </motion.div>
                     )}
@@ -552,31 +583,59 @@ const Navbar = () => {
                     </motion.div>
                   ))}
 
+                  {/* Call */}
                   <motion.a
                     variants={mobileItemVariants}
                     href="tel:+918890628049"
-                    className="mt-3 flex items-center gap-3 rounded-xl bg-slate-100 px-4 py-3 font-semibold text-[#062c54] transition hover:bg-orange-50 hover:text-orange-600"
+                    className="mt-4 flex items-center gap-4 rounded-2xl border border-orange-100 bg-gradient-to-r from-orange-50 to-white p-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <Phone size={19} />
-                    +91 88906 28049
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-white">
+                      <Phone size={20} />
+                    </div>
+
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-slate-500">
+                        Call Now
+                      </p>
+
+                      <p className="font-bold text-[#062c54]">
+                        +91 88906 28049
+                      </p>
+                    </div>
                   </motion.a>
 
+                  {/* WhatsApp */}
+                  <motion.a
+                    variants={mobileItemVariants}
+                    href="https://wa.me/918890628049?text=Hello%20Fairy%20Business%20Services,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 flex items-center justify-center gap-3 rounded-2xl bg-green-500 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-green-600"
+                  >
+                    <MessageCircle size={20} />
+                    Chat on WhatsApp
+                  </motion.a>
+
+                  {/* Consultation */}
                   <motion.div variants={mobileItemVariants}>
                     <Link
                       to="/contact"
                       onClick={() => setOpen(false)}
-                      className="mt-3 block rounded-full bg-orange-500 px-5 py-3 text-center font-semibold text-white shadow-md transition hover:bg-orange-600"
+                      className="mt-3 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#062c54] to-[#0b4c8c] py-3 font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-1"
                     >
-                      Hire Talent
+                      <BriefcaseBusiness size={18} />
+                      Get Free Consultation
                     </Link>
                   </motion.div>
 
+                  {/* Career */}
                   <motion.div variants={mobileItemVariants}>
                     <Link
                       to="/career"
                       onClick={() => setOpen(false)}
-                      className="mt-2 block rounded-full border border-[#062c54] px-5 py-3 text-center font-semibold text-[#062c54] transition hover:bg-[#062c54] hover:text-white"
+                      className="mt-3 flex items-center justify-center gap-2 rounded-2xl border-2 border-[#062c54] py-3 font-bold text-[#062c54] transition-all duration-300 hover:bg-[#062c54] hover:text-white"
                     >
+                      <UserPlus size={18} />
                       Apply for Jobs
                     </Link>
                   </motion.div>
@@ -584,14 +643,21 @@ const Navbar = () => {
                   {/* Photo card */}
                   <motion.div
                     variants={mobileItemVariants}
-                    className="relative mt-6 overflow-hidden rounded-2xl"
+                    className="group relative mt-6 overflow-hidden rounded-2xl"
                   >
                     <img
                       src={teamPhoto}
                       alt="Fairy Business Services team"
-                      className="h-32 w-full object-cover"
+                      className="h-32 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/80 to-[#062c54]/20" />
+                    <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-[#062c54] shadow">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                      </span>
+                      Actively Hiring
+                    </div>
                     <div className="absolute inset-0 flex flex-col justify-end p-5 text-white">
                       <p className="text-sm font-semibold text-orange-300">
                         Fairy Business Services

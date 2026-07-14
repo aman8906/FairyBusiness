@@ -700,7 +700,7 @@ const Contact = () => {
         </motion.div>
       </section>
 
-      {/* WhatsApp */}
+      {/* WhatsApp 
       <a
         href="https://wa.me/918890628049?text=Hello%20Fairy%20Business%20Services,%20I%20would%20like%20to%20know%20more%20about%20your%20HR,%20recruitment,%20training%20and%20staffing%20services."
         target="_blank"
@@ -712,7 +712,7 @@ const Contact = () => {
         <MessageCircle size={26} />
       </a>
 
-      {/* Call */}
+      {/* Call 
       <a
         href={PHONE_LINK}
         aria-label="Call Fairy Business Services"
@@ -720,7 +720,7 @@ const Contact = () => {
         className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#062c54] text-white shadow-2xl transition hover:scale-110 hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200"
       >
         <Phone size={23} />
-      </a>
+      </a>*/}
     </main>
   );
 };
