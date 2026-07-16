@@ -1,9 +1,13 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  ArrowUp,
   BriefcaseBusiness,
   Mail,
   MapPin,
   Phone,
+  Send,
+  Sparkles,
 } from "lucide-react";
 
 import logo from "../assets/logo.png";
@@ -20,22 +24,10 @@ const services = [
 ];
 
 const companyLinks = [
-  {
-    label: "Home",
-    to: "/",
-  },
-  {
-    label: "About Us",
-    to: "/about",
-  },
-  {
-    label: "Career",
-    to: "/career",
-  },
-  {
-    label: "Contact Us",
-    to: "/contact",
-  },
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Career", to: "/career" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 const hiringLinks = [
@@ -73,12 +65,71 @@ const socials = [
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [showTop, setShowTop] = useState(false);
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setEmail("");
+    setTimeout(() => setSubscribed(false), 3500);
+  };
 
   return (
     <footer className="relative overflow-hidden bg-[#041f3b] text-white">
-      <div className="pointer-events-none absolute -left-24 top-12 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-20 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="h-1 w-full bg-gradient-to-r from-orange-500 via-amber-400 to-blue-500" />
+      {/* Animated glow orbs — "active" background */}
+      <div className="pointer-events-none absolute -left-24 top-12 h-72 w-72 animate-pulse rounded-full bg-orange-500/10 blur-3xl [animation-duration:6s]" />
+      <div className="pointer-events-none absolute -right-24 bottom-20 h-80 w-80 animate-pulse rounded-full bg-blue-500/10 blur-3xl [animation-duration:8s]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-amber-400/5 blur-3xl [animation-duration:10s]" />
+      <div className="h-1 w-full animate-[gradient-x_4s_ease_infinite] bg-gradient-to-r from-orange-500 via-amber-400 to-blue-500 bg-[length:200%_auto]" />
+
+      {/* Newsletter strip */}
+      <div className="relative border-b border-white/10 bg-white/[0.04] backdrop-blur">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 py-8 sm:px-6 md:flex-row lg:px-8">
+          <div className="flex items-center gap-3 text-center md:text-left">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-orange-300">
+              <Sparkles size={20} />
+            </span>
+            <div>
+              <p className="text-base font-bold text-white">
+                Stay ahead with hiring &amp; HR insights
+              </p>
+              <p className="text-sm text-slate-400">
+                Subscribe for the latest openings and workforce trends.
+              </p>
+            </div>
+          </div>
+
+          <form
+            onSubmit={handleSubscribe}
+            className="flex w-full max-w-md items-center gap-2 rounded-full border border-white/15 bg-white/10 p-1.5 pl-5 shadow-inner"
+          >
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="w-full bg-transparent text-sm text-white placeholder:text-slate-400 focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="flex shrink-0 items-center gap-1.5 rounded-full bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white transition duration-300 hover:scale-105 hover:bg-orange-600 active:scale-95"
+            >
+              <Send size={15} />
+              {subscribed ? "Subscribed!" : "Subscribe"}
+            </button>
+          </form>
+        </div>
+      </div>
 
       {/* Main Footer */}
       <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
@@ -87,20 +138,25 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-2">
             <Link
               to="/"
-              className="inline-flex items-center gap-3"
+              className="group inline-flex items-center gap-3"
               aria-label="Fairy Business Services home"
             >
-              <img
-                src={logo}
-                alt="Fairy Business Services"
-                className="h-20 w-auto max-w-[220px] rounded-2xl bg-white p-3 object-contain shadow-xl ring-1 ring-white/20 sm:h-24"
-              />
+              <div className="relative">
+                <span className="absolute -right-1 -top-1 flex h-3.5 w-3.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-emerald-500" />
+                </span>
+                <img
+                  src={logo}
+                  alt="Fairy Business Services"
+                  className="h-20 w-auto max-w-[220px] rounded-2xl bg-white p-3 object-contain shadow-xl ring-1 ring-white/20 transition duration-300 group-hover:scale-105 group-hover:ring-orange-400/50 sm:h-24"
+                />
+              </div>
 
               <div className="hidden sm:block">
                 <p className="font-bold leading-tight text-white">
                   Fairy Business
                 </p>
-
                 <p className="text-sm font-medium text-orange-300">
                   Services
                 </p>
@@ -127,12 +183,12 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={`Visit our ${social.label} page`}
                   title={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/10 text-slate-300 transition duration-300 hover:-translate-y-1 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-slate-300 transition duration-300 hover:-translate-y-1.5 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:shadow-lg hover:shadow-orange-500/30"
                 >
                   <svg
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="h-5 w-5"
+                    className="h-5 w-5 transition-transform duration-300 group-hover:scale-110"
                     aria-hidden="true"
                   >
                     {social.icon}
@@ -145,16 +201,15 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h2 className="text-lg font-bold text-white">Our Services</h2>
-
-            <div className="mt-3 h-1 w-12 rounded-full bg-orange-500" />
-
+            <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
             <ul className="mt-5 space-y-3">
               {services.map((service) => (
                 <li key={service.label}>
                   <Link
                     to={service.to}
-                    className="text-sm leading-6 text-slate-300 transition-colors hover:text-orange-300"
+                    className="group inline-flex items-center text-sm leading-6 text-slate-300 transition-colors hover:text-orange-300"
                   >
+                    <span className="mr-0 h-px w-0 bg-orange-400 transition-all duration-300 group-hover:mr-2 group-hover:w-3" />
                     {service.label}
                   </Link>
                 </li>
@@ -164,19 +219,16 @@ const Footer = () => {
 
           {/* Hiring Solutions */}
           <div>
-            <h2 className="text-lg font-bold text-white">
-              Hiring Solutions
-            </h2>
-
-            <div className="mt-3 h-1 w-12 rounded-full bg-orange-500" />
-
+            <h2 className="text-lg font-bold text-white">Hiring Solutions</h2>
+            <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
             <ul className="mt-5 space-y-3">
               {hiringLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     to={item.to}
-                    className="text-sm leading-6 text-slate-300 transition-colors hover:text-orange-300"
+                    className="group inline-flex items-center text-sm leading-6 text-slate-300 transition-colors hover:text-orange-300"
                   >
+                    <span className="mr-0 h-px w-0 bg-orange-400 transition-all duration-300 group-hover:mr-2 group-hover:w-3" />
                     {item.label}
                   </Link>
                 </li>
@@ -187,16 +239,15 @@ const Footer = () => {
           {/* Company Links */}
           <div>
             <h2 className="text-lg font-bold text-white">Company</h2>
-
-            <div className="mt-3 h-1 w-12 rounded-full bg-orange-500" />
-
+            <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
             <ul className="mt-5 space-y-3">
               {companyLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     to={item.to}
-                    className="text-sm leading-6 text-slate-300 transition-colors hover:text-orange-300"
+                    className="group inline-flex items-center text-sm leading-6 text-slate-300 transition-colors hover:text-orange-300"
                   >
+                    <span className="mr-0 h-px w-0 bg-orange-400 transition-all duration-300 group-hover:mr-2 group-hover:w-3" />
                     {item.label}
                   </Link>
                 </li>
@@ -205,7 +256,7 @@ const Footer = () => {
 
             <Link
               to="/contact"
-              className="mt-6 inline-flex rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition duration-300 hover:scale-105 hover:bg-orange-600"
             >
               Get Free Consultation
             </Link>
@@ -214,17 +265,12 @@ const Footer = () => {
 
         {/* Contact Information */}
         <div className="mt-12 grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.07] p-6 shadow-2xl backdrop-blur sm:grid-cols-2 lg:grid-cols-3">
-          <a
-            href="tel:+918890628049"
-            className="group flex items-start gap-4"
-          >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white">
+          <a href="tel:+918890628049" className="group flex items-start gap-4">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white transition duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-orange-500/40">
               <Phone size={21} />
             </div>
-
             <div>
               <p className="text-sm text-slate-400">Call Our Team</p>
-
               <p className="mt-1 font-semibold text-white transition group-hover:text-orange-300">
                 +91 88906 28049
               </p>
@@ -235,13 +281,11 @@ const Footer = () => {
             href="mailto:fairybusinessservices@outlook.com"
             className="group flex items-start gap-4"
           >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white transition duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-orange-500/40">
               <Mail size={21} />
             </div>
-
             <div className="min-w-0">
               <p className="text-sm text-slate-400">Email Address</p>
-
               <p className="mt-1 break-all font-semibold text-white transition group-hover:text-orange-300">
                 fairybusinessservices@outlook.com
               </p>
@@ -254,13 +298,11 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="group flex items-start gap-4"
           >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white transition duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-orange-500/40">
               <MapPin size={21} />
             </div>
-
             <div>
               <p className="text-sm text-slate-400">Office Location</p>
-
               <p className="mt-1 font-semibold leading-6 text-white transition group-hover:text-orange-300">
                 Pratap Nagar, Jaipur, Rajasthan – 302033
               </p>
@@ -272,34 +314,34 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="border-t border-white/10 bg-[#03182e]">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-5 text-center text-sm text-slate-400 sm:px-6 md:flex-row md:text-left lg:px-8">
-          <p>
-            © {year} Fairy Business Services. All rights reserved.
-          </p>
+          <p>© {year} Fairy Business Services. All rights reserved.</p>
 
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
-            <Link
-              to="/privacy-policy"
-              className="transition-colors hover:text-orange-300"
-            >
+            <Link to="/privacy-policy" className="transition-colors hover:text-orange-300">
               Privacy Policy
             </Link>
-
-            <Link
-              to="/terms"
-              className="transition-colors hover:text-orange-300"
-            >
+            <Link to="/terms" className="transition-colors hover:text-orange-300">
               Terms & Conditions
             </Link>
-
-            <Link
-              to="/contact"
-              className="transition-colors hover:text-orange-300"
-            >
+            <Link to="/contact" className="transition-colors hover:text-orange-300">
               Contact
             </Link>
           </div>
         </div>
       </div>
+
+      {/* Floating back-to-top button — "active" / live element */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-white shadow-lg shadow-orange-500/40 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 ${
+          showTop
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-4 opacity-0"
+        }`}
+      >
+        <ArrowUp size={20} />
+      </button>
     </footer>
   );
 };

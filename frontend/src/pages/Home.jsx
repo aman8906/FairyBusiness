@@ -17,6 +17,7 @@ import {
   Hotel,
   IndianRupee,
   Laptop,
+  
   MapPinned,
   Network,
   Presentation,
@@ -256,19 +257,16 @@ const testimonials = [
     review:
       "Fairy Business Services helped us identify suitable candidates quickly and handled the coordination professionally.",
     name: "Corporate Client",
-    role: "HR Manager",
   },
   {
     review:
       "Their recruitment team understood our requirements and provided relevant candidate profiles within the expected timeline.",
     name: "Business Client",
-    role: "Operations Head",
   },
   {
     review:
-      "The team provided reliable staffing support and maintained transparent communication throughout the process.",
-    name: "Hospitality Client",
-    role: "General Manager",
+      "The team provided reliable hospitality staffing support and maintained transparent communication throughout the process.",
+    name: "Hospitality Staffing Client",
   },
 ];
 
@@ -984,9 +982,9 @@ const Home = () => {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {testimonials.map(({ review, name, role }) => (
+            {testimonials.map(({ review, name }) => (
               <article
-                key={`${name}-${role}`}
+                key={name}
                 className="rounded-3xl border border-white/10 bg-white/10 p-7 backdrop-blur"
               >
                 <div className="flex gap-1 text-orange-300">
@@ -1001,7 +999,6 @@ const Home = () => {
 
                 <div className="mt-6 border-t border-white/10 pt-5">
                   <h3 className="font-bold">{name}</h3>
-                  <p className="mt-1 text-sm text-slate-400">{role}</p>
                 </div>
               </article>
             ))}
