@@ -5,14 +5,23 @@ import {
   ArrowRight,
   ArrowUpRight,
   Award,
+
   BriefcaseBusiness,
   Building2,
   CheckCircle2,
   ChevronDown,
   Clock3,
   Code2,
+  Compass,
+  FileText,
+  ListChecks,
+  PiggyBank,
+  Plane,
+  
+  MessageSquare,
   GraduationCap,
   Handshake,
+  HeartHandshake,
   Headphones,
   Hotel,
   IndianRupee,
@@ -22,7 +31,9 @@ import {
   Network,
   Presentation,
   Search,
-  ShieldCheck,
+  
+
+  
   Sparkles,
   Star,
   Target,
@@ -70,44 +81,134 @@ const services = [
     icon: Code2,
     title: "IT Project & Software Development",
     description:
-      "Dedicated IT project handling and software developer staffing for web, mobile and full-stack technology needs.",
+      "IT project handling and developer support for web, mobile, backend and full-stack technology requirements.",
     points: [
-      "IT project resource staffing",
-      "Full-stack & backend developers",
+      "IT project resource support",
+      "Web and software development",
       "Agile project coordination",
     ],
   },
-  {
-    icon: UsersRound,
-    title: "Non-IT Recruitment",
-    description:
-      "Qualified talent sourcing for sales, finance, HR, manufacturing, healthcare, retail and supply chain roles.",
-    points: [
-      "Sales and marketing",
-      "Accounts and finance",
-      "HR and administration",
-    ],
-  },
+ {
+  icon: UsersRound,
+  title: "Non-IT Recruitment",
+  description:
+    "Qualified talent sourcing for Sales, Finance, HR, Manufacturing, Healthcare, Retail, Logistics and Banking sectors.",
+  points: [
+    "Sales & Marketing",
+    "Accounts & Finance",
+    "HR & Administration",
+    "Retail, Healthcare & Logistics",
+    "Banking Jobs & Placement",
+  ],
+},
   {
     icon: Presentation,
     title: "Corporate Training",
     description:
-      "Customized corporate training programs designed around each client's needs, including soft skills and specialized workplace training.",
+      "Customized corporate training programs designed according to each client's workforce and business requirements.",
     points: [
       "Soft-skills training",
-      "NLP, POSH & TTT programs",
-      "Customized as per client need",
+      "NLP, POSH and TTT",
+      "Leadership and communication",
     ],
   },
   {
     icon: Hotel,
     title: "Hospitality Staffing",
     description:
-      "Skilled staffing and operational support for hotels, resorts, restaurants, cafés, clubs and guest houses.",
+      "Skilled staffing support for hotels, resorts, restaurants, cafés, clubs, catering businesses and guest houses.",
     points: [
       "Front office and guest relations",
-      "Housekeeping and F&B staff",
-      "Chefs, managers and supervisors",
+      "Housekeeping, F&B and banquet staff",
+      "Chefs, stewards, baristas and kitchen helpers",
+    ],
+  },
+  {
+    icon: GraduationCap,
+    title: "UG/PG Admission Counselling",
+    description:
+      "Admission guidance for undergraduate and postgraduate programs across Medical, IT, Non-IT and Hospitality courses.",
+    points: [
+      "Course and college guidance",
+      "Medical, IT and Non-IT programs",
+      "Hospitality course counselling",
+    ],
+  },
+  {
+    icon: ListChecks,
+    title: "Internship Programs",
+    description:
+      "Paid and unpaid internship opportunities for students and freshers across IT and Non-IT domains.",
+    points: [
+      "Paid internships",
+      "Unpaid internships",
+      "Practical industry exposure",
+    ],
+  },
+  {
+    icon: FileText,
+    title: "Resume Writing & Building",
+    description:
+      "Professional resume development designed to present candidates clearly and improve job application readiness.",
+    points: [
+      "ATS-friendly resumes",
+      "Profile and CV improvement",
+      "Job-specific resume support",
+    ],
+  },
+  {
+    icon: Compass,
+    title: "Career Counselling",
+    description:
+      "Personalized career guidance for students, freshers and experienced professionals.",
+    points: [
+      "Career path selection",
+      "Skill and profile assessment",
+      "Job and placement guidance",
+    ],
+  },
+  {
+    icon: HeartHandshake,
+    title: "NGO Project Support",
+    description:
+      "Planning, documentation and coordination support for NGO and social-impact projects.",
+    points: [
+      "Project documentation",
+      "Planning assistance",
+      "Coordination support",
+    ],
+  },
+  {
+    icon: Plane,
+    title: "Study Abroad Assistance",
+    description:
+      "Guidance for overseas education, course selection, university applications and documentation.",
+    points: [
+      "University selection",
+      "Application assistance",
+      "Documentation guidance",
+    ],
+  },
+  {
+    icon: PiggyBank,
+    title: "Banking Products & Placement",
+    description:
+      "Support for banking products along with placement assistance and job opportunities in the Banking sector.",
+    points: [
+      "Banking job placement",
+      "Banking products guidance",
+      "Customer and operations roles",
+    ],
+  },
+  {
+    icon: MessageSquare,
+    title: "CRM & Client Support",
+    description:
+      "Customer relationship management and client-support services focused on communication, follow-up and issue resolution.",
+    points: [
+      "Customer communication",
+      "Lead and client follow-up",
+      "Query and issue support",
     ],
   },
   {
@@ -158,26 +259,42 @@ const recruitmentCategories = [
     roles: [
       "Front Office Executives",
       "Guest Relations Executives",
+      "Receptionists",
       "Housekeeping Staff",
       "Food & Beverage Staff",
+      "Banquet Staff",
       "Chefs & Kitchen Helpers",
       "Stewards & Waiters",
+      "Baristas",
       "Maintenance Staff",
-      "Supervisors & Managers",
     ],
   },
   {
     icon: Presentation,
     title: "Corporate Training",
     roles: [
-      "Soft-Skills Trainer",
-      "NLP Trainer",
-      "POSH Trainer",
+      "Soft-Skills Training",
+      "NLP Training",
+      "POSH Training",
       "TTT (Train the Trainer)",
       "Communication Skills",
       "Leadership Development",
       "Behavioral Training",
       "Customized Client Programs",
+    ],
+  },
+  {
+    icon: PiggyBank,
+    title: "Banking Jobs & Placement",
+    roles: [
+      "Relationship Officers",
+      "Customer Service Executives",
+      "Banking Operations",
+      "Back Office Executives",
+      "Loan Processing",
+      "Sales Executives",
+      "Branch Support",
+      "Client Support",
     ],
   },
 ];
@@ -255,18 +372,18 @@ const whyChooseUs = [
 const testimonials = [
   {
     review:
-      "Fairy Business Services helped us identify suitable candidates quickly and handled the coordination professionally.",
-    name: "Corporate Client",
+      "Fairy Business Services supported our hospitality hiring with relevant front office, housekeeping and food and beverage profiles.",
+    name: "Hotel Recruitment Client",
   },
   {
     review:
-      "Their recruitment team understood our requirements and provided relevant candidate profiles within the expected timeline.",
-    name: "Business Client",
+      "Their team coordinated chef, steward, banquet and kitchen staffing requirements professionally and within the expected timeline.",
+    name: "Restaurant & Catering Client",
   },
   {
     review:
-      "The team provided reliable hospitality staffing support and maintained transparent communication throughout the process.",
-    name: "Hospitality Staffing Client",
+      "We received transparent support for guest relations, reception, housekeeping and maintenance staffing.",
+    name: "Hospitality Business Client",
   },
 ];
 
@@ -274,37 +391,62 @@ const faqs = [
   {
     question: "Which industries does Fairy Business Services serve?",
     answer:
-      "We provide recruitment and workforce solutions across IT, hospitality, healthcare, retail, FMCG, manufacturing, engineering, logistics, finance, administration, sales and marketing.",
+      "We provide services across IT, Non-IT, hospitality, healthcare, retail, FMCG, manufacturing, engineering, logistics, finance, administration, sales, marketing, education and banking.",
   },
   {
-    question: "Do you provide both permanent and contract staffing?",
+    question: "Do you provide permanent and contract staffing?",
     answer:
       "Yes. We support permanent staffing, temporary staffing, contract staffing, third-party payroll and customized workforce outsourcing models.",
   },
   {
-    question: "Can you support bulk hiring and PAN India recruitment?",
-    answer:
-      "Yes. We provide bulk hiring, lateral recruitment, campus recruitment and workforce deployment support across India.",
-  },
-  {
     question: "Do you provide campus hiring and placement support?",
     answer:
-      "Yes. We collaborate with colleges, universities and technical institutes to organize campus recruitment and placement drives.",
+      "Yes. We collaborate with colleges, universities and technical institutes for campus recruitment, student screening, interview coordination and placement drives.",
   },
   {
-    question: "Do you handle IT projects and provide software developers?",
+    question: "Do you provide UG/PG admission counselling?",
     answer:
-      "Yes. We provide dedicated resource support for IT project handling along with skilled software developers across web, mobile, backend and full-stack technologies.",
+      "Yes. We provide admission counselling for Medical, IT, Non-IT and Hospitality undergraduate and postgraduate courses.",
   },
   {
-    question: "Do you offer corporate training programs?",
+    question: "Do you provide paid and unpaid internships?",
     answer:
-      "Yes. We offer corporate training including soft-skills training, NLP, POSH and TTT (Train the Trainer) programs, customized according to each client's needs.",
+      "Yes. We provide paid and unpaid internship programs for IT and Non-IT students and freshers.",
+  },
+  {
+    question: "Do you provide resume writing and career counselling?",
+    answer:
+      "Yes. We provide resume writing, profile building and personalized career counselling for students, freshers and experienced candidates.",
+  },
+  {
+    question: "Do you provide study abroad assistance?",
+    answer:
+      "Yes. We provide guidance for course selection, universities, applications and documentation for overseas education.",
+  },
+  {
+    question: "Do you provide Banking sector jobs and placement?",
+    answer:
+      "Yes. We provide placement support and job opportunities for customer service, banking operations, back-office, relationship, sales and branch-support roles.",
+  },
+  {
+    question: "Do you handle IT projects and software development?",
+    answer:
+      "Yes. We provide IT project support and software development resources across web, mobile, backend and full-stack technologies.",
+  },
+  {
+    question: "Do you offer corporate training?",
+    answer:
+      "Yes. We offer customized corporate training including soft skills, NLP, POSH, TTT, communication and leadership programs.",
   },
   {
     question: "Do you provide hospitality staffing?",
     answer:
-      "Yes. We recruit front office professionals, housekeeping staff, chefs, F&B personnel, guest relations executives, maintenance staff, supervisors and managers.",
+      "Yes. We recruit front office executives, guest relations professionals, receptionists, housekeeping teams, F&B staff, banquet staff, chefs, kitchen helpers, stewards, waiters, baristas and maintenance staff.",
+  },
+  {
+    question: "How can I contact Fairy Business Services?",
+    answer:
+      "For any query, call our team or email fairybusinessservices@outlook.com and submit your message through the Contact page.",
   },
 ];
 
@@ -313,176 +455,228 @@ const workGallery = [
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80&auto=format&fit=crop",
     title: "IT Project & Software Development",
-    tag: "Software Developer",
+    tag: "Technology Support",
     description:
-      "Dedicated developers and project resources for your web, mobile and full-stack builds.",
+      "Developers and project resources for web, mobile, backend and full-stack requirements.",
   },
   {
     image:
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&auto=format&fit=crop",
     title: "Corporate Training",
-    tag: "Soft-Skills · NLP · POSH · TTT",
+    tag: "Soft Skills · NLP · POSH · TTT",
     description:
-      "Live, instructor-led training sessions customized around your team's goals.",
+      "Instructor-led training programs customized according to each client's goals.",
   },
   {
     image:
       "https://images.unsplash.com/photo-1607013407627-6ee814329547?w=900&q=80&auto=format&fit=crop",
     title: "Campus Hiring & Placement",
-    tag: "Campus Hiring",
+    tag: "Campus Recruitment",
     description:
-      "Recruitment drives and placement support connecting institutes with employers.",
+      "Placement drives connecting colleges, students and suitable employers.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80&auto=format&fit=crop",
+    title: "Hospitality Staffing",
+    tag: "Hotels & Restaurants",
+    description:
+      "Staffing support for front office, housekeeping, F&B, banquet and kitchen teams.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=80&auto=format&fit=crop",
+    title: "Admissions & Career Guidance",
+    tag: "Student Support",
+    description:
+      "UG/PG admission counselling, internships, resume building and career guidance.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&q=80&auto=format&fit=crop",
+    title: "Banking Jobs & Client Support",
+    tag: "Banking Sector",
+    description:
+      "Banking placement, products guidance, CRM and customer-support solutions.",
   },
 ];
 
 const Home = () => {
   const [openFaq, setOpenFaq] = useState(0);
 
-  return (
-    <main className="overflow-hidden bg-white text-slate-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#fff8f4] via-white to-[#f5f8ff]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,146,60,0.20),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,44,84,0.16),transparent_35%)]" />
+ return (
+  <main className="overflow-hidden bg-white text-slate-900">
+    {/* Hero */}
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#fff8f4] via-white to-[#f5f8ff]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,146,60,0.20),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,44,84,0.16),transparent_35%)]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 md:grid-cols-2 md:py-28">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white px-4 py-2 text-sm font-semibold text-orange-600 shadow-sm">
-              <Sparkles size={18} />
-              Connecting Talent with Opportunity
-            </p>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 md:grid-cols-2 md:py-28">
+        <div>
+          <p className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white px-4 py-2 text-sm font-semibold text-orange-600 shadow-sm">
+            <Sparkles size={18} />
+            Connecting Talent with Opportunity
+          </p>
 
-            <h1 className="mt-6 text-4xl font-extrabold leading-tight text-[#062c54] md:text-6xl">
-              Your Trusted HR Partner for{" "}
-              <span className="text-orange-500">
-                Talent & Workforce Solutions
+          <h1 className="mt-6 text-4xl font-extrabold leading-tight text-[#062c54] md:text-6xl">
+            Recruitment, Career & Business{" "}
+            <span className="text-orange-500">Support Solutions</span>
+          </h1>
+
+          <p className="mt-6 text-lg leading-8 text-slate-600">
+            Fairy Business Services provides recruitment, IT projects,
+            software development, corporate training, hospitality staffing,
+            admission counselling, internships, career guidance, banking
+            placement, CRM support and outsourcing solutions across India.
+          </p>
+
+          <p className="mt-4 leading-7 text-slate-500">
+            We support employers, educational institutions, students,
+            professionals and business clients with practical, customized
+            solutions and dedicated assistance.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-orange-600"
+            >
+              Get Free Consultation
+              <ArrowRight size={18} />
+            </Link>
+
+            <Link
+              to="/career"
+              className="inline-flex items-center gap-2 rounded-full border border-[#062c54] px-7 py-3.5 font-semibold text-[#062c54] transition duration-300 hover:bg-[#062c54] hover:text-white"
+            >
+              Explore Jobs & Internships
+            </Link>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-700">
+            <span className="flex items-center gap-2">
+              <CheckCircle2 className="text-orange-500" size={19} />
+              PAN India Recruitment
+            </span>
+
+            <span className="flex items-center gap-2">
+              <CheckCircle2 className="text-orange-500" size={19} />
+              Quality Candidate Screening
+            </span>
+
+            <span className="flex items-center gap-2">
+              <CheckCircle2 className="text-orange-500" size={19} />
+              Dedicated Client Support
+            </span>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="relative lg:pb-10"
+        >
+          <div className="group relative overflow-hidden rounded-[2rem] shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=80&auto=format&fit=crop"
+              alt="Fairy Business Services recruitment and HR consulting team at work"
+              loading="lazy"
+              className="h-[480px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 sm:h-[540px]"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/35 to-transparent" />
+
+            <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 text-xs font-semibold text-[#062c54] shadow-lg backdrop-blur sm:left-6 sm:top-6 sm:px-4 sm:text-sm">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
               </span>
-            </h1>
-
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Fairy Business Services provides HR consulting, recruitment, IT
-              hiring, IT project handling, software developers, corporate
-              training, hospitality staffing, campus hiring, placement support
-              and outsourcing solutions across India.
-            </p>
-
-            <p className="mt-4 leading-7 text-slate-500">
-              Backed by more than 25 years of expertise across diverse business
-              segments, we help organizations hire the right talent, improve
-              workforce productivity and focus on their core operations.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-orange-600"
-              >
-                Hire Talent
-                <ArrowRight size={18} />
-              </Link>
-
-              <Link
-                to="/career"
-                className="inline-flex items-center gap-2 rounded-full border border-[#062c54] px-7 py-3.5 font-semibold text-[#062c54] transition duration-300 hover:bg-[#062c54] hover:text-white"
-              >
-                Apply for Jobs
-              </Link>
+              Actively Hiring Across India
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-700">
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="text-orange-500" size={19} />
-                PAN India Recruitment
-              </span>
+            <div className="absolute inset-x-5 bottom-8 sm:inset-x-6 sm:bottom-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-300 sm:text-sm">
+                Fairy Business Services
+              </p>
 
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="text-orange-500" size={19} />
-                Quality Candidate Screening
-              </span>
-
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="text-orange-500" size={19} />
-                Dedicated Client Support
-              </span>
+              <h2 className="mt-2 max-w-sm text-2xl font-bold leading-tight text-white sm:text-3xl">
+                Comprehensive HR & Staffing Solutions
+              </h2>
             </div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="
+              mt-6
+              grid
+              grid-cols-2
+              gap-5
+              sm:gap-6
+              lg:absolute
+              lg:-bottom-8
+              lg:-left-8
+              lg:mt-0
+            "
           >
-            <div className="group relative overflow-hidden rounded-[2rem] shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=80&auto=format&fit=crop"
-                alt="Fairy Business Services recruitment and HR consulting team at work"
-                loading="lazy"
-                className="h-[480px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 sm:h-[540px]"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/35 to-transparent" />
-
-              <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-[#062c54] shadow-lg backdrop-blur">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
-                </span>
-                Actively Hiring Across India
-              </div>
-
-              <div className="absolute inset-x-6 bottom-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
-                  Fairy Business Services
-                </p>
-                <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-                  Comprehensive HR & Staffing Solutions
-                </h2>
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="absolute -bottom-8 -left-4 grid grid-cols-2 gap-3 sm:-left-8 sm:gap-4"
-            >
-              {[
-                { icon: Award, value: "25+", label: "Years" },
-                { icon: MapPinned, value: "PAN India", label: "Support" },
-              ].map(({ icon: Icon, value, label }) => (
-                <div
-                  key={label}
-                  className="rounded-2xl border border-slate-100 bg-white p-4 shadow-xl transition duration-300 hover:-translate-y-1"
-                >
-                  <Icon className="text-orange-500" size={22} />
-                  <h3 className="mt-2 text-lg font-bold text-[#062c54]">
-                    {value}
-                  </h3>
-                  <p className="text-xs leading-4 text-slate-500">{label}</p>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -right-4 -top-6 hidden rounded-2xl bg-orange-500 p-4 text-white shadow-xl sm:-right-6 sm:block"
-            >
-              <p className="text-xs font-medium text-orange-100">
-                Need qualified professionals?
-              </p>
-              <Link
-                to="/contact"
-                className="mt-1 inline-flex items-center gap-1.5 text-sm font-bold"
+            {[
+              { icon: Award, value: "25+", label: "Years" },
+              { icon: MapPinned, value: "PAN India", label: "Support" },
+            ].map(({ icon: Icon, value, label }) => (
+              <div
+                key={label}
+                className="
+                  flex
+                  min-h-[120px]
+                  min-w-0
+                  flex-col
+                  justify-center
+                  rounded-2xl
+                  border
+                  border-slate-100
+                  bg-white
+                  p-5
+                  shadow-xl
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  lg:w-[140px]
+                "
               >
-                Share requirement
-                <ArrowRight size={15} />
-              </Link>
-            </motion.div>
+                <Icon className="mb-3 text-orange-500" size={22} />
+
+                <h3 className="text-xl font-bold leading-tight text-[#062c54]">
+                  {value}
+                </h3>
+
+                <p className="mt-1 text-sm text-slate-500">{label}</p>
+              </div>
+            ))}
           </motion.div>
-        </div>
-      </section>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="absolute -right-4 -top-6 hidden rounded-2xl bg-orange-500 p-4 text-white shadow-xl sm:-right-6 sm:block"
+          >
+            <p className="text-xs font-medium text-orange-100">
+              Need qualified professionals?
+            </p>
+
+            <Link
+              to="/contact"
+              className="mt-1 inline-flex items-center gap-1.5 text-sm font-bold"
+            >
+              Share requirement
+              <ArrowRight size={15} />
+            </Link>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
 
       {/* About */}
       <section className="mx-auto max-w-7xl px-5 py-20">
@@ -568,17 +762,17 @@ const Home = () => {
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] md:text-5xl">
-              End-to-end HR and workforce solutions
+              Recruitment, education, career and business solutions
             </h2>
 
             <p className="mt-5 leading-7 text-slate-600">
-              From workforce strategy and recruitment to IT project staffing,
-              corporate training, payroll, hospitality staffing and outsourced
-              manpower management.
+              Explore recruitment, technology, training, hospitality,
+              admissions, internships, career counselling, study abroad,
+              banking placement and client-support services.
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {services.map(
               ({ icon: Icon, title, description, points }) => (
                 <article
@@ -640,8 +834,8 @@ const Home = () => {
           </h2>
 
           <p className="mt-5 leading-7 text-slate-600">
-            A closer look at how we support IT projects, corporate training
-            and campus placements for our clients.
+            A closer look at our technology, training, recruitment,
+            hospitality, education, career and banking-support services.
           </p>
         </div>
 
@@ -698,13 +892,12 @@ const Home = () => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl leading-7 text-slate-600">
-            We source and screen professionals for technical, non-technical and
-            hospitality roles, and deliver customized corporate training at
-            different experience levels.
+            We support IT, Non-IT, hospitality and banking recruitment while
+            delivering customized training, internships and career assistance.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {recruitmentCategories.map(({ icon: Icon, title, roles }) => (
             <article
               key={title}
@@ -900,7 +1093,7 @@ const Home = () => {
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] md:text-5xl">
-              Reliable recruitment backed by experience
+              Reliable support backed by experience
             </h2>
           </div>
 
@@ -977,7 +1170,7 @@ const Home = () => {
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold md:text-5xl">
-              Trusted workforce support
+              Trusted recruitment and hospitality support
             </h2>
           </div>
 
@@ -1015,7 +1208,7 @@ const Home = () => {
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold text-[#062c54] md:text-5xl">
-              How can we support your hiring needs?
+              How can Fairy Business Services support you?
             </h2>
           </div>
 
@@ -1070,16 +1263,17 @@ const Home = () => {
       <section className="bg-gradient-to-r from-orange-500 to-orange-600 py-20 text-white">
         <div className="mx-auto max-w-7xl px-5 text-center">
           <p className="font-semibold uppercase tracking-[0.2em] text-orange-100">
-            Build Your Workforce
+            Recruitment, Careers & Business Support
           </p>
 
           <h2 className="mx-auto mt-3 max-w-4xl text-3xl font-extrabold md:text-5xl">
-            Let us connect your organization with the right people
+            Connect with us for hiring, admissions, careers and business support
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl leading-8 text-orange-50">
-            Share your recruitment, staffing, training, outsourcing or campus
-            hiring requirements with our team.
+            Contact our team for recruitment, staffing, internships,
+            admissions, career counselling, study abroad, banking jobs,
+            training, CRM support or IT project requirements.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -1087,7 +1281,7 @@ const Home = () => {
               to="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-semibold text-orange-600 shadow-lg transition hover:-translate-y-1 hover:bg-slate-100"
             >
-              Request Manpower
+              Contact Our Team
               <ArrowRight size={18} />
             </Link>
 
@@ -1095,7 +1289,7 @@ const Home = () => {
               to="/career"
               className="inline-flex items-center gap-2 rounded-full border border-white px-8 py-3.5 font-semibold text-white transition hover:bg-white hover:text-orange-600"
             >
-              Explore Jobs
+              Explore Jobs & Internships
             </Link>
           </div>
         </div>

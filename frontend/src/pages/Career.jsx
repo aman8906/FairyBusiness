@@ -28,6 +28,7 @@ import {
 import api from "../api/axios";
 
 const MAX_RESUME_SIZE_MB = 5;
+const EMAIL_ADDRESS = "fairybusinessservices@outlook.com";
 
 const initialForm = {
   name: "",
@@ -42,7 +43,7 @@ const jobCategories = [
     icon: Laptop,
     title: "IT Opportunities",
     description:
-      "Web development, software development, data, cloud, DevOps, testing, cybersecurity and project management roles.",
+      "Web development, software development, IT project roles, data, cloud, DevOps, testing, cybersecurity and project management roles.",
   },
   {
     icon: Building2,
@@ -291,12 +292,22 @@ const Career = () => {
     } catch (error) {
       console.error("Application submission failed:", error);
 
+      // A timed-out request usually means the server took too long to
+      // respond (slow connection, large resume upload, or the backend
+      // being unreachable) rather than a problem with the form itself.
+      const isTimeout =
+        error.code === "ECONNABORTED" ||
+        /timeout/i.test(error.message || "");
+
       setToast({
         type: "error",
-        title: "Application not submitted",
-        message:
-          error.response?.data?.message ||
-          "We could not submit your application. Please check your details and try again.",
+        title: isTimeout
+          ? "Request timed out"
+          : "Application not submitted",
+        message: isTimeout
+          ? "This is taking longer than expected. Please check your internet connection and try again — if the problem continues, contact us directly so we don't miss your application."
+          : error.response?.data?.message ||
+            "We could not submit your application. Please check your details and try again.",
       });
     } finally {
       setLoading(false);
@@ -325,9 +336,12 @@ const Career = () => {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#062c54] text-white">
-        <img
-          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80&auto=format&fit=crop"
+        <motion.img
+          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80&auto=format&fit=crop"
           alt="Professionals exploring career and recruitment opportunities"
+          initial={{ scale: 1.12 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 12, ease: "easeOut" }}
           className="absolute inset-0 h-full w-full object-cover opacity-25"
         />
 
@@ -344,10 +358,20 @@ const Career = () => {
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
-            Explore IT, non-IT, hospitality and entry-level career opportunities
-            through FBS Management Consultancy&apos;s recruitment network across
-            India.
+            Explore IT, IT project, software development, non-IT, hospitality,
+            corporate training and entry-level career opportunities through
+            Fairy Business Services&apos; recruitment network across India.
           </p>
+
+          <div className="mt-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-[#062c54] shadow-lg">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+              </span>
+              Currently Accepting Applications
+            </span>
+          </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <button
@@ -713,7 +737,7 @@ const Career = () => {
                       type="tel"
                       inputMode="tel"
                       autoComplete="tel"
-                      pattern="[+]?[0-9\s-]{10,16}"
+                      pattern="[+]?[0-9\s\-]{10,16}"
                       title="Enter a valid phone number"
                       placeholder="+91 98765 43210"
                       className="w-full rounded-xl border border-slate-300 bg-slate-50 py-3.5 pl-11 pr-4 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
@@ -874,7 +898,7 @@ const Career = () => {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2">
           <div>
             <p className="font-semibold uppercase tracking-[0.2em] text-orange-300">
-              Campus Hiring & Placement
+              Campus Hiring & Placement Support
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold md:text-5xl">
@@ -882,9 +906,9 @@ const Career = () => {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-300">
-              FBS Management Consultancy collaborates with colleges,
-              universities and technical institutes across India to support
-              campus recruitment and placement opportunities.
+              Fairy Business Services collaborates with colleges, universities
+              and technical institutes across India to support campus
+              recruitment and placement opportunities.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -910,27 +934,39 @@ const Career = () => {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/10 p-8 backdrop-blur">
-            <GraduationCap size={52} className="text-orange-300" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-xl">
+            <div className="group h-56 w-full overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1000&q=80&auto=format&fit=crop"
+                alt="Candidate celebrating a successful job offer"
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062c54] to-transparent" />
+            </div>
 
-            <h3 className="mt-5 text-3xl font-bold">
-              Register for future opportunities
-            </h3>
+            <div className="bg-white/10 p-8 backdrop-blur">
+              <GraduationCap size={44} className="text-orange-300" />
 
-            <p className="mt-4 leading-8 text-slate-300">
-              Students and fresh graduates can submit a general application.
-              Our recruitment team may contact suitable candidates when matching
-              opportunities become available.
-            </p>
+              <h3 className="mt-5 text-2xl font-bold sm:text-3xl">
+                Register for future opportunities
+              </h3>
 
-            <button
-              type="button"
-              onClick={() => scrollToForm("Campus Placement")}
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 font-semibold text-white transition hover:bg-orange-600"
-            >
-              Register Your Profile
-              <ArrowRight size={18} />
-            </button>
+              <p className="mt-4 leading-7 text-slate-300">
+                Students and fresh graduates can submit a general application.
+                Our recruitment team may contact suitable candidates when
+                matching opportunities become available.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => scrollToForm("Campus Placement")}
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 font-semibold text-white transition hover:bg-orange-600"
+              >
+                Register Your Profile
+                <ArrowRight size={18} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -948,7 +984,7 @@ const Career = () => {
             </h2>
 
             <p className="mt-3 text-orange-50">
-              Contact FBS Management Consultancy for recruitment and career
+              Contact Fairy Business Services for recruitment and career
               support.
             </p>
           </div>
@@ -963,7 +999,7 @@ const Career = () => {
             </a>
 
             <a
-              href="mailto:info@fairybusinessservice.com"
+              href={`mailto:${EMAIL_ADDRESS}`}
               className="inline-flex items-center gap-2 rounded-full border border-white px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-orange-600"
             >
               <Mail size={18} />

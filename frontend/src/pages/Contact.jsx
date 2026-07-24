@@ -74,6 +74,14 @@ const services = [
   "NLP Training",
   "POSH Training",
   "TTT (Train the Trainer)",
+  "UG/PG Admission Counselling",
+  "Internship Programs",
+  "Resume Writing & Building",
+  "Career Counselling",
+  "NGO Project Help",
+  "Abroad Study Help",
+  "Banking Products & Placement",
+  "CRM & Client Support",
   "Other Requirement",
 ];
 
@@ -235,62 +243,98 @@ const Contact = () => {
         <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-orange-200/30 blur-3xl" />
         <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-purple-200/40 blur-3xl" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative mx-auto max-w-7xl text-center"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white px-4 py-2 text-sm font-semibold text-orange-600 shadow-sm">
-            <Sparkles size={17} />
-            Connecting Talent with Opportunity
-          </span>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white px-4 py-2 text-sm font-semibold text-orange-600 shadow-sm">
+              <Sparkles size={17} />
+              Connecting Talent with Opportunity
+            </span>
 
-          <h1 className="mx-auto mt-6 max-w-5xl text-4xl font-extrabold leading-tight text-[#062c54] md:text-6xl">
-            Fairy Business Services
-          </h1>
+            <h1 className="mt-6 max-w-2xl text-4xl font-extrabold leading-tight text-[#062c54] md:text-6xl">
+              Fairy Business Services
+            </h1>
 
-          <p className="mx-auto mt-5 max-w-4xl text-base leading-8 text-slate-600 md:text-lg">
-            Your trusted HR partner for recruitment, staffing, workforce
-            management, corporate training and outsourcing solutions across India.
-          </p>
+            <p className="mt-5 max-w-xl text-base leading-8 text-slate-600 md:text-lg">
+              Your trusted HR partner for recruitment, staffing, corporate
+              training and outsourcing solutions across India.
+            </p>
 
-          <div className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: Clock3,
-                title: "25+ Years",
-                description: "Industry expertise",
-              },
-              {
-                icon: UsersRound,
-                title: "PAN India",
-                description: "Recruitment support",
-              },
-              {
-                icon: BriefcaseBusiness,
-                title: "IT & Non-IT",
-                description: "Specialized hiring",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Dedicated",
-                description: "Client support",
-              },
-            ].map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-orange-100 bg-white/85 p-5 shadow-sm backdrop-blur"
-              >
-                <Icon className="mx-auto text-orange-500" size={27} />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  icon: Clock3,
+                  title: "25+ Years",
+                  description: "Industry expertise",
+                },
+                {
+                  icon: UsersRound,
+                  title: "PAN India",
+                  description: "Recruitment support",
+                },
+                {
+                  icon: BriefcaseBusiness,
+                  title: "IT & Non-IT",
+                  description: "Specialized hiring",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Dedicated",
+                  description: "Client support",
+                },
+              ].map(({ icon: Icon, title, description }) => (
+                <div
+                  key={title}
+                  className="rounded-2xl border border-orange-100 bg-white/85 p-5 shadow-sm backdrop-blur"
+                >
+                  <Icon className="text-orange-500" size={27} />
 
-                <h2 className="mt-3 font-bold text-[#062c54]">{title}</h2>
+                  <h2 className="mt-3 font-bold text-[#062c54]">{title}</h2>
 
-                <p className="mt-1 text-sm text-slate-500">{description}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+                  <p className="mt-1 text-sm text-slate-500">{description}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="relative"
+          >
+            <div className="group h-[420px] w-full overflow-hidden rounded-[2rem] shadow-2xl sm:h-[460px]">
+              <img
+                src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=1200&q=80&auto=format&fit=crop"
+                alt="Fairy Business Services team ready to assist with your enquiry"
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#062c54] via-[#062c54]/25 to-transparent" />
+            </div>
+
+            <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-[#062c54] shadow-lg backdrop-blur">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+              </span>
+              Currently Accepting Enquiries
+            </div>
+
+            <div className="absolute inset-x-6 bottom-6 text-white">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
+                Get in touch
+              </p>
+              <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
+                We usually respond within 24 hours
+              </h2>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Contact cards */}
@@ -492,7 +536,10 @@ const Contact = () => {
                 HR Consulting | Recruitment | IT Hiring | Non-IT Hiring | IT
                 Project Handling | Software Developer | Corporate Training |
                 Soft-Skills, NLP, POSH & TTT | Campus Hiring | Placement
-                Support | Hospitality Staffing | Outsourcing
+                Support | Hospitality Staffing | Outsourcing | Admission
+                Counselling | Internships | Resume Writing | Career
+                Counselling | NGO Project Help | Abroad Study Help | Banking
+                Products & Placement | CRM & Client Support
               </p>
             </div>
           </motion.div>
@@ -561,7 +608,7 @@ const Contact = () => {
                     type="tel"
                     inputMode="tel"
                     autoComplete="tel"
-                    pattern="[+]?[0-9\s-]{10,16}"
+                    pattern="[+]?[0-9\s\-]{10,16}"
                     title="Enter a valid phone number"
                     placeholder="+91 98765 43210"
                     className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
@@ -700,7 +747,7 @@ const Contact = () => {
         </motion.div>
       </section>
 
-      {/* WhatsApp 
+      {/* WhatsApp */}
       <a
         href="https://wa.me/918890628049?text=Hello%20Fairy%20Business%20Services,%20I%20would%20like%20to%20know%20more%20about%20your%20HR,%20recruitment,%20training%20and%20staffing%20services."
         target="_blank"
@@ -712,7 +759,7 @@ const Contact = () => {
         <MessageCircle size={26} />
       </a>
 
-      {/* Call 
+      {/* Call */}
       <a
         href={PHONE_LINK}
         aria-label="Call Fairy Business Services"
@@ -720,7 +767,7 @@ const Contact = () => {
         className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#062c54] text-white shadow-2xl transition hover:scale-110 hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200"
       >
         <Phone size={23} />
-      </a>*/}
+      </a>
     </main>
   );
 };

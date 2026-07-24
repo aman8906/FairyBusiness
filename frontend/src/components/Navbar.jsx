@@ -2,16 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  ArrowRight,
+  BookOpen,
   BriefcaseBusiness,
+  CheckCircle2,
   ChevronDown,
   Code2,
+  Compass,
+  FileText,
   FolderKanban,
   GraduationCap,
+  HeartHandshake,
   Hotel,
   Laptop,
+  ListChecks,
   Menu,
   MessageCircle,
+  MessageSquare,
+  PiggyBank,
   Phone,
+  Plane,
   Presentation,
   UserCheck,
   UserPlus,
@@ -19,8 +29,9 @@ import {
 } from "lucide-react";
 
 import logo from "../assets/logo.png";
-// Add a real team / office / hospitality-staff photo here (place the file in src/assets)
-import teamPhoto from "../assets/team-photo.jpg";
+
+const TEAM_PHOTO =
+  "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=80&auto=format&fit=crop";
 
 const serviceLinks = [
   {
@@ -78,11 +89,78 @@ const serviceLinks = [
   },
 ];
 
+// Education, career and banking support — added alongside the core HR &
+// recruitment services so the menu stays in sync with the Services page.
+const educationLinks = [
+  {
+    name: "UG/PG Admission Counselling",
+    path: "/services?service=UG%2FPG%20Admission%20Counselling",
+    match: "UG/PG Admission Counselling",
+    icon: BookOpen,
+  },
+  {
+    name: "Internship Programs",
+    path: "/services?service=Internship%20Programs",
+    match: "Internship Programs",
+    icon: ListChecks,
+  },
+  {
+    name: "Resume Writing",
+    path: "/services?service=Resume%20Writing%20%26%20Building",
+    match: "Resume Writing & Building",
+    icon: FileText,
+  },
+  {
+    name: "Career Counselling",
+    path: "/services?service=Career%20Counselling",
+    match: "Career Counselling",
+    icon: Compass,
+  },
+  {
+    name: "NGO Project Help",
+    path: "/services?service=NGO%20Project%20Help",
+    match: "NGO Project Help",
+    icon: HeartHandshake,
+  },
+  {
+    name: "Study Abroad Assistance",
+    path: "/services?service=Study%20Abroad%20Assistance",
+    match: "Study Abroad Assistance",
+    icon: Plane,
+  },
+  {
+    name: "Banking Jobs & Products",
+    path: "/services?service=Banking%20Jobs%20%26%20Products",
+    match: "Banking Jobs & Products",
+    icon: PiggyBank,
+  },
+  {
+    name: "CRM & Client Support",
+    path: "/services?service=CRM%20%26%20Client%20Support",
+    match: "CRM & Client Support",
+    icon: MessageSquare,
+  },
+];
+
 const navigationLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Career", path: "/career" },
   { name: "Contact", path: "/contact" },
+];
+
+// Shown inside the "Get Free Consultation" dropdown — the add-on
+// services the client wants highlighted right from the button.
+const addOnServices = [
+  "UG/PG admission counselling for Medical, IT, Non-IT and Hospitality courses",
+  "Paid and unpaid internship programs for IT and Non-IT",
+  "Resume writing and profile building",
+  "Career counselling",
+  "NGO project support",
+  "Study abroad assistance",
+  "Banking products support",
+  "Placement and jobs in the Banking sector",
+  "CRM and client support",
 ];
 
 // Framer Motion variants
@@ -132,15 +210,20 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [consultationOpen, setConsultationOpen] = useState(false);
+  const [mobileConsultationOpen, setMobileConsultationOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const location = useLocation();
   const servicesRef = useRef(null);
+  const consultationRef = useRef(null);
 
   useEffect(() => {
     setOpen(false);
     setServicesOpen(false);
     setMobileServicesOpen(false);
+    setConsultationOpen(false);
+    setMobileConsultationOpen(false);
   }, [location.pathname, location.search]);
 
   useEffect(() => {
@@ -155,11 +238,18 @@ const Navbar = () => {
       if (servicesRef.current && !servicesRef.current.contains(event.target)) {
         setServicesOpen(false);
       }
+      if (
+        consultationRef.current &&
+        !consultationRef.current.contains(event.target)
+      ) {
+        setConsultationOpen(false);
+      }
     };
 
     const handleEscape = (event) => {
       if (event.key === "Escape") {
         setServicesOpen(false);
+        setConsultationOpen(false);
         setOpen(false);
       }
     };
@@ -203,6 +293,42 @@ const Navbar = () => {
     }`;
 
   const underlineClass = () => "hidden";
+
+  const renderServiceLink = (link, index) => {
+    const { name, path, icon: Icon } = link;
+    const active = isServiceLinkActive(link);
+
+    return (
+      <motion.div
+        key={path}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2, delay: index * 0.03 }}
+      >
+        <Link
+          to={path}
+          role="menuitem"
+          onClick={() => setServicesOpen(false)}
+          className={`group flex items-center gap-3 rounded-xl px-3.5 py-2.5 transition-colors ${
+            active
+              ? "bg-orange-50 text-orange-600"
+              : "text-slate-700 hover:bg-orange-50 hover:text-orange-600"
+          }`}
+        >
+          <div
+            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-colors ${
+              active
+                ? "bg-orange-500 text-white"
+                : "bg-slate-100 text-[#062c54] group-hover:bg-orange-500 group-hover:text-white"
+            }`}
+          >
+            <Icon size={18} />
+          </div>
+          <span className="text-sm font-semibold">{name}</span>
+        </Link>
+      </motion.div>
+    );
+  };
 
   return (
     <motion.nav
@@ -290,56 +416,33 @@ const Navbar = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute left-1/2 top-full mt-4 w-[760px] -translate-x-1/2 overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/95 p-4 shadow-[0_24px_70px_rgba(15,23,42,0.18)] backdrop-blur-2xl"
+                  className="absolute left-1/2 top-full mt-4 w-[860px] -translate-x-1/2 overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/95 p-4 shadow-[0_24px_70px_rgba(15,23,42,0.18)] backdrop-blur-2xl"
                 >
-                  <div className="grid grid-cols-[1.4fr_1fr] gap-3">
-                    <div className="grid grid-cols-2 gap-2">
-                      {serviceLinks.map(
-                        ({ name, path, icon: Icon, ...link }, index) => {
-                          const active = isServiceLinkActive({ path, ...link });
-                          return (
-                            <motion.div
-                              key={path}
-                              initial={{ opacity: 0, y: 8 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{
-                                duration: 0.2,
-                                delay: index * 0.03,
-                              }}
-                            >
-                              <Link
-                                to={path}
-                                role="menuitem"
-                                onClick={() => setServicesOpen(false)}
-                                className={`group flex items-center gap-3 rounded-xl px-4 py-3 transition-colors ${
-                                  active
-                                    ? "bg-orange-50 text-orange-600"
-                                    : "text-slate-700 hover:bg-orange-50 hover:text-orange-600"
-                                }`}
-                              >
-                                <div
-                                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors ${
-                                    active
-                                      ? "bg-orange-500 text-white"
-                                      : "bg-slate-100 text-[#062c54] group-hover:bg-orange-500 group-hover:text-white"
-                                  }`}
-                                >
-                                  <Icon size={20} />
-                                </div>
-                                <span className="text-sm font-semibold">
-                                  {name}
-                                </span>
-                              </Link>
-                            </motion.div>
-                          );
-                        },
-                      )}
+                  <div className="grid grid-cols-[1.6fr_1fr] gap-3">
+                    <div className="max-h-[420px] overflow-y-auto pr-1">
+                      <p className="px-3.5 pb-2 pt-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                        HR & Recruitment
+                      </p>
+                      <div className="grid grid-cols-2 gap-1">
+                        {serviceLinks.map((link, index) =>
+                          renderServiceLink(link, index),
+                        )}
+                      </div>
+
+                      <p className="mt-3 border-t border-slate-100 px-3.5 pb-2 pt-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                        Education, Career, Banking & Support
+                      </p>
+                      <div className="grid grid-cols-2 gap-1">
+                        {educationLinks.map((link, index) =>
+                          renderServiceLink(link, index),
+                        )}
+                      </div>
                     </div>
 
                     {/* Photo + CTA panel */}
                     <div className="group relative overflow-hidden rounded-xl">
                       <img
-                        src={teamPhoto}
+                        src={TEAM_PHOTO}
                         alt="Fairy Business Services team"
                         className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       />
@@ -393,15 +496,72 @@ const Navbar = () => {
             +91 88906 28049
           </a>
 
-          <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              to="/contact"
+          <div className="relative" ref={consultationRef}>
+            <motion.button
+              type="button"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setConsultationOpen((previous) => !previous)}
+              aria-expanded={consultationOpen}
+              aria-haspopup="menu"
               className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-[#062c54] via-[#0b4c8c] to-[#1d72b8] px-6 py-3 text-sm font-bold text-white shadow-[0_14px_32px_rgba(6,44,84,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(6,44,84,0.36)]"
             >
               <BriefcaseBusiness size={17} />
               Get Free Consultation
-            </Link>
-          </motion.div>
+              <motion.span
+                animate={{ rotate: consultationOpen ? 180 : 0 }}
+                transition={{ duration: 0.25 }}
+                className="flex"
+              >
+                <ChevronDown size={15} />
+              </motion.span>
+            </motion.button>
+
+            <AnimatePresence>
+              {consultationOpen && (
+                <motion.div
+                  role="menu"
+                  variants={dropdownVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="absolute right-0 top-full mt-4 w-[380px] overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/95 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.18)] backdrop-blur-2xl"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-500">
+                    Add On
+                  </p>
+
+                  <ul className="mt-3 space-y-2.5">
+                    {addOnServices.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2.5 text-sm leading-6 text-[#062c54]"
+                      >
+                        <CheckCircle2
+                          size={17}
+                          className="mt-0.5 shrink-0 text-orange-500"
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-500">
+                    For any query, contact us at fairybusinessservices@outlook.com or drop us a message.
+                  </p>
+
+                  <Link
+                    to="/contact"
+                    onClick={() => setConsultationOpen(false)}
+                    className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-600"
+                  >
+                    Get Free Consultation
+                    <ArrowRight size={16} />
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -539,29 +699,55 @@ const Navbar = () => {
                         className="overflow-hidden"
                       >
                         <div className="mb-2 ml-3 mt-1 flex flex-col gap-1 border-l-2 border-orange-100 pl-3">
-                          {serviceLinks.map(
-                            ({ name, path, icon: Icon, ...link }) => {
-                              const active = isServiceLinkActive({
-                                path,
-                                ...link,
-                              });
-                              return (
-                                <Link
-                                  key={path}
-                                  to={path}
-                                  onClick={() => setOpen(false)}
-                                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${
-                                    active
-                                      ? "bg-orange-50 font-semibold text-orange-600"
-                                      : "text-slate-600 hover:bg-slate-50 hover:text-orange-600"
-                                  }`}
-                                >
-                                  <Icon size={17} />
-                                  {name}
-                                </Link>
-                              );
-                            },
-                          )}
+                          <p className="px-3 pt-1 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                            HR & Recruitment
+                          </p>
+                          {serviceLinks.map(({ name, path, icon: Icon, ...link }) => {
+                            const active = isServiceLinkActive({
+                              path,
+                              ...link,
+                            });
+                            return (
+                              <Link
+                                key={path}
+                                to={path}
+                                onClick={() => setOpen(false)}
+                                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${
+                                  active
+                                    ? "bg-orange-50 font-semibold text-orange-600"
+                                    : "text-slate-600 hover:bg-slate-50 hover:text-orange-600"
+                                }`}
+                              >
+                                <Icon size={17} />
+                                {name}
+                              </Link>
+                            );
+                          })}
+
+                          <p className="mt-2 border-t border-orange-100 px-3 pb-1 pt-2 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                            Education, Career, Banking & Support
+                          </p>
+                          {educationLinks.map(({ name, path, icon: Icon, ...link }) => {
+                            const active = isServiceLinkActive({
+                              path,
+                              ...link,
+                            });
+                            return (
+                              <Link
+                                key={path}
+                                to={path}
+                                onClick={() => setOpen(false)}
+                                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${
+                                  active
+                                    ? "bg-orange-50 font-semibold text-orange-600"
+                                    : "text-slate-600 hover:bg-slate-50 hover:text-orange-600"
+                                }`}
+                              >
+                                <Icon size={17} />
+                                {name}
+                              </Link>
+                            );
+                          })}
                         </div>
                       </motion.div>
                     )}
@@ -618,26 +804,73 @@ const Navbar = () => {
 
                   {/* Consultation */}
                   <motion.div variants={mobileItemVariants}>
-                    <Link
-                      to="/contact"
-                      onClick={() => setOpen(false)}
-                      className="mt-3 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#062c54] to-[#0b4c8c] py-3 font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-1"
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setMobileConsultationOpen((previous) => !previous)
+                      }
+                      aria-expanded={mobileConsultationOpen}
+                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#062c54] to-[#0b4c8c] py-3 font-bold text-white shadow-xl transition-all duration-300"
                     >
                       <BriefcaseBusiness size={18} />
                       Get Free Consultation
-                    </Link>
-                  </motion.div>
+                      <motion.span
+                        animate={{ rotate: mobileConsultationOpen ? 180 : 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="flex"
+                      >
+                        <ChevronDown size={16} />
+                      </motion.span>
+                    </button>
 
-                  {/* Career */}
-                  <motion.div variants={mobileItemVariants}>
-                    <Link
-                      to="/career"
-                      onClick={() => setOpen(false)}
-                      className="mt-3 flex items-center justify-center gap-2 rounded-2xl border-2 border-[#062c54] py-3 font-bold text-[#062c54] transition-all duration-300 hover:bg-[#062c54] hover:text-white"
-                    >
-                      <UserPlus size={18} />
-                      Apply for Jobs
-                    </Link>
+                    <AnimatePresence initial={false}>
+                      {mobileConsultationOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.28,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mt-3 rounded-2xl border border-orange-100 bg-orange-50/60 p-4">
+                            <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-500">
+                              Add On
+                            </p>
+
+                            <ul className="mt-3 space-y-2.5">
+                              {addOnServices.map((item) => (
+                                <li
+                                  key={item}
+                                  className="flex items-start gap-2.5 text-sm leading-6 text-[#062c54]"
+                                >
+                                  <CheckCircle2
+                                    size={17}
+                                    className="mt-0.5 shrink-0 text-orange-500"
+                                  />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+
+                            <p className="mt-4 border-t border-orange-100 pt-4 text-sm text-slate-500">
+                              For any query, contact us at fairybusinessservices@outlook.com or drop us a message.
+                            </p>
+
+                            <Link
+                              to="/contact"
+                              onClick={() => setOpen(false)}
+                              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-600"
+                            >
+                              Get Free Consultation
+                              <ArrowRight size={16} />
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
 
                   {/* Photo card */}
@@ -646,7 +879,7 @@ const Navbar = () => {
                     className="group relative mt-6 overflow-hidden rounded-2xl"
                   >
                     <img
-                      src={teamPhoto}
+                      src={TEAM_PHOTO}
                       alt="Fairy Business Services team"
                       className="h-32 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     />
@@ -663,9 +896,9 @@ const Navbar = () => {
                         Fairy Business Services
                       </p>
                       <p className="mt-2 text-sm leading-6 text-slate-200">
-                        Recruitment, IT Project Handling, Software Development,
-                        Corporate Training, Hospitality Staffing, Campus Hiring
-                        and Placement Support—all under one trusted brand.
+                        Recruitment, hospitality staffing, IT projects,
+                        corporate training, admissions, internships, career
+                        counselling and banking placement support.
                       </p>
                     </div>
                   </motion.div>

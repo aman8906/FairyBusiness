@@ -17,9 +17,9 @@ const services = [
   { label: "HR Consulting", to: "/services?service=HR%20Consulting" },
   { label: "IT Recruitment", to: "/services?service=IT%20Recruitment" },
   { label: "IT Project Handling", to: "/services?service=IT%20Project%20Handling" },
-  { label: "Software Development", to: "/services?service=Software%20Development" },
+  { label: "Software Developer", to: "/services?service=Software%20Developer" },
   { label: "Corporate Training", to: "/services?service=Corporate%20Training" },
-  { label: "Soft Skills Training", to: "/services?service=Soft%20Skills%20Training" },
+  { label: "Hospitality Staffing", to: "/services?service=Hospitality%20Staffing" },
   { label: "NLP, POSH & TTT", to: "/services?service=Corporate%20Training" },
 ];
 
@@ -39,6 +39,19 @@ const hiringLinks = [
   { label: "Contract Staffing", to: "/services?service=Contract%20Staffing" },
 ];
 
+// Education, career and banking support — kept in sync with the
+// Services page and the navbar's add-on services list.
+const educationCareerLinks = [
+  { label: "Admission Counselling", to: "/services?service=UG%2FPG%20Admission%20Counselling" },
+  { label: "Internship Programs", to: "/services?service=Internship%20Programs" },
+  { label: "Resume Writing & Building", to: "/services?service=Resume%20Writing%20%26%20Building" },
+  { label: "Career Counselling", to: "/services?service=Career%20Counselling" },
+  { label: "NGO Project Help", to: "/services?service=NGO%20Project%20Help" },
+  { label: "Abroad Study Help", to: "/services?service=Abroad%20Study%20Help" },
+  { label: "Banking Products & Placement", to: "/services?service=Banking%20Products%20%26%20Placement" },
+  { label: "CRM & Client Support", to: "/services?service=CRM%20%26%20Client%20Support" },
+];
+
 const socials = [
   {
     label: "Facebook",
@@ -49,14 +62,14 @@ const socials = [
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/fairybusinessservice",
+    href: "https://instagram.com/fairybusinessservices",
     icon: (
       <path d="M12 2c2.7 0 3.1 0 4.1.1 1.1 0 1.8.2 2.4.5.7.2 1.2.6 1.7 1.1.5.5.9 1 1.1 1.7.3.6.5 1.3.5 2.4.1 1 .1 1.4.1 4.1s0 3.1-.1 4.1c0 1.1-.2 1.8-.5 2.4a4.9 4.9 0 0 1-2.8 2.8c-.6.3-1.3.5-2.4.5-1 .1-1.4.1-4.1.1s-3.1 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5a4.9 4.9 0 0 1-2.8-2.8c-.3-.6-.5-1.3-.5-2.4C2 15.1 2 14.7 2 12s0-3.1.1-4.1c0-1.1.2-1.8.5-2.4.2-.7.6-1.2 1.1-1.7.5-.5 1-.9 1.7-1.1.6-.3 1.3-.5 2.4-.5C8.9 2 9.3 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4Z" />
     ),
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/company/fairybusinessservice",
+    href: "https://linkedin.com/company/fairybusinessservices",
     icon: (
       <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3ZM6.5 7.7A1.7 1.7 0 1 1 6.5 4.3a1.7 1.7 0 0 1 0 3.4ZM19 19h-3v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V19h-3V9h2.9v1.3h.1c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.7 2 3.7 4.7Z" />
     ),
@@ -133,7 +146,7 @@ const Footer = () => {
 
       {/* Main Footer */}
       <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
           {/* Company Information */}
           <div className="sm:col-span-2 lg:col-span-2">
             <Link
@@ -165,13 +178,15 @@ const Footer = () => {
 
             <p className="mt-5 max-w-md leading-7 text-slate-300">
               Fairy Business Services provides HR consulting, recruitment,
-              IT hiring, non-IT hiring, hospitality staffing, campus placement
-              and workforce outsourcing solutions across India.
+              IT hiring, non-IT hiring, hospitality staffing, corporate
+              training, campus placement, education &amp; career counselling
+              and workforce outsourcing solutions across India. We also
+              provide placement and jobs in the banking sector.
             </p>
 
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-orange-300">
+            <div className="mt-5 inline-flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-orange-300">
               <BriefcaseBusiness size={17} />
-              Recruitment • IT Projects • Software Development • Corporate Training
+              Recruitment • IT Projects • Corporate Training • Banking Placements
             </div>
 
             <div className="mt-6 flex gap-3">
@@ -223,6 +238,27 @@ const Footer = () => {
             <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
             <ul className="mt-5 space-y-3">
               {hiringLinks.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.to}
+                    className="group inline-flex items-center text-sm leading-6 text-slate-300 transition-colors hover:text-orange-300"
+                  >
+                    <span className="mr-0 h-px w-0 bg-orange-400 transition-all duration-300 group-hover:mr-2 group-hover:w-3" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Education, Career & Banking */}
+          <div>
+            <h2 className="text-lg font-bold text-white">
+              Education &amp; Career
+            </h2>
+            <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
+            <ul className="mt-5 space-y-3">
+              {educationCareerLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     to={item.to}
