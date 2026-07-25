@@ -9,8 +9,10 @@ import {
   Clock3,
   FileText,
   GraduationCap,
+  Home,
   Hotel,
   Laptop,
+  LayoutGrid,
   LoaderCircle,
   Mail,
   MapPin,
@@ -18,10 +20,12 @@ import {
   RefreshCw,
   Search,
   Send,
+  Shuffle,
   Sparkles,
   UploadCloud,
   UserRound,
   UsersRound,
+  Wifi,
   X,
 } from "lucide-react";
 
@@ -63,6 +67,14 @@ const jobCategories = [
     description:
       "Entry-level opportunities and placement support for students, fresh graduates and technical institute candidates.",
   },
+];
+
+const workModes = [
+  { label: "All", icon: LayoutGrid, match: null },
+  { label: "Remote", icon: Wifi, match: "remote" },
+  { label: "Work From Home", icon: Home, match: "work from home" },
+  { label: "Hybrid", icon: Shuffle, match: "hybrid" },
+  { label: "On-site", icon: Building2, match: "on-site" },
 ];
 
 const Toast = ({ toast, onClose }) => {
@@ -136,6 +148,7 @@ const Career = () => {
   const [jobsLoading, setJobsLoading] = useState(true);
   const [jobsError, setJobsError] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [workMode, setWorkMode] = useState("All");
 
   const [form, setForm] = useState(initialForm);
   const [resume, setResume] = useState(null);
@@ -314,8 +327,16 @@ const Career = () => {
     }
   };
 
+  const activeWorkMode = workModes.find((mode) => mode.label === workMode);
+
   const filteredJobs = jobs.filter((job) => {
     const query = searchTerm.trim().toLowerCase();
+    const location = (job.location || "").toLowerCase();
+
+    const matchesWorkMode =
+      !activeWorkMode?.match || location.includes(activeWorkMode.match);
+
+    if (!matchesWorkMode) return false;
 
     if (!query) return true;
 
@@ -477,6 +498,29 @@ const Career = () => {
               </div>
             </div>
 
+            <div className="mb-6 flex flex-wrap gap-2">
+              {workModes.map(({ label, icon: Icon }) => {
+                const active = workMode === label;
+
+                return (
+                  <button
+                    key={label}
+                    type="button"
+                    onClick={() => setWorkMode(label)}
+                    aria-pressed={active}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+                      active
+                        ? "border-orange-500 bg-orange-500 text-white shadow-md"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-orange-300 hover:text-orange-600"
+                    }`}
+                  >
+                    <Icon size={15} />
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+
             {jobsLoading ? (
               <div className="flex items-center gap-3 rounded-3xl border border-slate-200 bg-white p-7 text-slate-500 shadow-sm">
                 <LoaderCircle
@@ -541,15 +585,18 @@ const Career = () => {
                 </h3>
 
                 <p className="mt-2 text-slate-600">
-                  Try searching with a different job title, skill or location.
+                  Try a different search term or work-mode filter.
                 </p>
 
                 <button
                   type="button"
-                  onClick={() => setSearchTerm("")}
+                  onClick={() => {
+                    setSearchTerm("");
+                    setWorkMode("All");
+                  }}
                   className="mt-4 font-semibold text-orange-600 hover:text-orange-700"
                 >
-                  Clear Search
+                  Clear Filters
                 </button>
               </div>
             ) : (
