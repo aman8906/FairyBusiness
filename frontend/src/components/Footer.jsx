@@ -44,7 +44,7 @@ const hiringLinks = [
 const educationCareerLinks = [
   { label: "Admission Counselling", to: "/services?service=UG%2FPG%20Admission%20Counselling" },
   { label: "Internship Programs", to: "/services?service=Internship%20Programs" },
-  { label: "Resume Writing & Building with ATS", to: "/services?service=Resume%20Writing%20%26%20Building" },
+  { label: "Resume Writing & Building", to: "/services?service=Resume%20Writing%20%26%20Building" },
   { label: "Career Counselling", to: "/services?service=Career%20Counselling" },
   { label: "NGO Project Help", to: "/services?service=NGO%20Project%20Help" },
   { label: "Abroad Study Help", to: "/services?service=Abroad%20Study%20Help" },
@@ -56,20 +56,23 @@ const socials = [
   {
     label: "Facebook",
     href: "https://facebook.com/fairybusinessservice",
+    color: "#1877F2",
     icon: (
       <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z" />
     ),
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/fairybusinessservices",
+    href: "https://instagram.com/fairybusinessservice",
+    gradient: "linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)",
     icon: (
       <path d="M12 2c2.7 0 3.1 0 4.1.1 1.1 0 1.8.2 2.4.5.7.2 1.2.6 1.7 1.1.5.5.9 1 1.1 1.7.3.6.5 1.3.5 2.4.1 1 .1 1.4.1 4.1s0 3.1-.1 4.1c0 1.1-.2 1.8-.5 2.4a4.9 4.9 0 0 1-2.8 2.8c-.6.3-1.3.5-2.4.5-1 .1-1.4.1-4.1.1s-3.1 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5a4.9 4.9 0 0 1-2.8-2.8c-.3-.6-.5-1.3-.5-2.4C2 15.1 2 14.7 2 12s0-3.1.1-4.1c0-1.1.2-1.8.5-2.4.2-.7.6-1.2 1.1-1.7.5-.5 1-.9 1.7-1.1.6-.3 1.3-.5 2.4-.5C8.9 2 9.3 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4Z" />
     ),
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/company/fairybusinessservices",
+    href: "https://www.linkedin.com/in/sandeep-sharma-1b4692424/",
+    color: "#0A66C2",
     icon: (
       <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3ZM6.5 7.7A1.7 1.7 0 1 1 6.5 4.3a1.7 1.7 0 0 1 0 3.4ZM19 19h-3v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V19h-3V9h2.9v1.3h.1c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.7 2 3.7 4.7Z" />
     ),
@@ -198,7 +201,8 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={`Visit our ${social.label} page`}
                   title={social.label}
-                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-slate-300 transition duration-300 hover:-translate-y-1.5 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:shadow-lg hover:shadow-orange-500/30"
+                  style={{ background: social.gradient || social.color }}
+                  className="group flex h-11 w-11 items-center justify-center rounded-full text-white shadow-md transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:brightness-110"
                 >
                   <svg
                     viewBox="0 0 24 24"

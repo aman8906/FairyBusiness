@@ -8,7 +8,7 @@ const sections = [
   },
   {
     title: "2. How We Use Your Information",
-    body: "We use the information you provide to respond to enquiries, process job applications, match candidates with employers, provide recruitment and HR consulting services, and communicate updates relevant to your enquiry or application.",
+    body: "We use the information you provide to respond to enquiries, process job applications, match candidates with employers, provide recruitment, HR consulting, corporate training, education/career counselling and banking placement services, and communicate updates relevant to your enquiry or application.",
   },
   {
     title: "3. Sharing of Information",
@@ -52,7 +52,7 @@ const PrivacyPolicy = () => {
       {/* Content */}
       <section className="mx-auto max-w-4xl px-5 py-16">
         <p className="leading-8 text-slate-600">
-          FBS Management Consultancy ("we", "our", "us") is committed to protecting
+          Fairy Business Services ("we", "our", "us") is committed to protecting
           the privacy of visitors to our website, job applicants, and clients. This
           Privacy Policy explains how we collect, use, and safeguard your
           information.

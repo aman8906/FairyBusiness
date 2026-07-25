@@ -6,6 +6,7 @@ import {
   Award,
   BriefcaseBusiness,
   CheckCircle2,
+  Code2,
   Eye,
   Globe2,
   Handshake,
@@ -144,6 +145,13 @@ const leadership = [
     icon: BriefcaseBusiness,
     description:
       "Leads organizational operations, client partnerships and workforce solution delivery.",
+  },
+  {
+    name: "Aman Chaurasiya",
+    role: "Head of IT & Web Development",
+    icon: Code2,
+    description:
+      "Manages the technology, website and digital infrastructure that power Fairy Business Services.",
   },
 ];
 
@@ -551,15 +559,22 @@ const About = () => {
           </h2>
         </div>
 
-        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {leadership.map(
             ({ name, role, icon: Icon, description }) => (
               <article
                 key={name}
-                className="group rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#062c54] text-orange-300 transition duration-300 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white">
-                  <Icon size={36} />
+                <span className="pointer-events-none absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-400/0 blur-2xl transition-all duration-500 group-hover:bg-orange-400/25" />
+
+                <div className="relative mx-auto flex h-20 w-20 items-center justify-center">
+                  <span className="absolute inset-0 rounded-full bg-orange-400/40 opacity-0 [animation:ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite] group-hover:opacity-100" />
+                  <span className="absolute inset-0 rounded-full bg-[#062c54] transition duration-300 group-hover:bg-orange-500" />
+                  <Icon
+                    size={36}
+                    className="relative text-orange-300 transition duration-300 group-hover:scale-110 group-hover:text-white"
+                  />
                 </div>
 
                 <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-orange-500">

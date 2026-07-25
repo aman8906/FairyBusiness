@@ -4,11 +4,11 @@ import { FileText, Mail, Phone } from "lucide-react";
 const sections = [
   {
     title: "1. Acceptance of Terms",
-    body: "By accessing or using the FBS Management Consultancy website, you agree to be bound by these Terms & Conditions. If you do not agree, please discontinue use of the site.",
+    body: "By accessing or using the Fairy Business Services website, you agree to be bound by these Terms & Conditions. If you do not agree, please discontinue use of the site.",
   },
   {
     title: "2. Our Services",
-    body: "FBS Management Consultancy provides HR consulting, recruitment (IT and Non-IT), executive search, bulk and campus hiring, hospitality staffing, and workforce outsourcing services. Service availability may vary by location and client requirement.",
+    body: "Fairy Business Services provides HR consulting, recruitment (IT and Non-IT), executive search, bulk and campus hiring, hospitality staffing, workforce outsourcing, IT project handling, software development, corporate training, UG/PG admission counselling, internship programs, resume writing, career counselling, NGO project support, study abroad assistance, banking products and placement, and CRM & client support. Service availability may vary by location and client requirement.",
   },
   {
     title: "3. Job Applications & Candidate Information",
@@ -24,11 +24,11 @@ const sections = [
   },
   {
     title: "6. Intellectual Property",
-    body: "All content on this website, including text, logos, and graphics, is the property of FBS Management Consultancy and may not be reproduced without permission.",
+    body: "All content on this website, including text, logos, and graphics, is the property of Fairy Business Services and may not be reproduced without permission.",
   },
   {
     title: "7. Limitation of Liability",
-    body: "FBS Management Consultancy is not liable for any indirect or consequential loss arising from use of this website or reliance on information provided through it.",
+    body: "Fairy Business Services is not liable for any indirect or consequential loss arising from use of this website or reliance on information provided through it.",
   },
   {
     title: "8. Changes to These Terms",
@@ -56,8 +56,8 @@ const Terms = () => {
       {/* Content */}
       <section className="mx-auto max-w-4xl px-5 py-16">
         <p className="leading-8 text-slate-600">
-          These Terms & Conditions govern your use of the FBS Management
-          Consultancy website and services. Please read them carefully before
+          These Terms & Conditions govern your use of the Fairy Business
+          Services website and services. Please read them carefully before
           using our site or engaging our services.
         </p>
 
