@@ -493,7 +493,7 @@ const Contact = () => {
             </p>
 
             <div className="mt-9 border-b border-white/40 pb-4">
-              <h3 className="text-xl font-semibold">Main Office</h3>
+              <h3 className="text-xl font-semibold">Corporate Office</h3>
             </div>
 
             <div className="mt-6 space-y-5">
@@ -759,15 +759,7 @@ const Contact = () => {
         <MessageCircle size={26} />
       </a>
 
-      {/* Call */}
-      <a
-        href={PHONE_LINK}
-        aria-label="Call Fairy Business Services"
-        title={`Call ${PHONE_NUMBER}`}
-        className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#062c54] text-white shadow-2xl transition hover:scale-110 hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200"
-      >
-        <Phone size={23} />
-      </a>
+      
     </main>
   );
 };

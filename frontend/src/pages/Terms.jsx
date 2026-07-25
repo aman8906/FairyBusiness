@@ -76,8 +76,8 @@ const Terms = () => {
             Reach out and our team will clarify anything you need.
           </p>
           <div className="mt-5 flex flex-wrap gap-4">
-            <a href="mailto:info@fairybusinessservice.com" className="flex items-center gap-2 text-orange-300 hover:text-orange-200">
-              <Mail size={18} /> info@fairybusinessservice.com
+            <a href="mailto:fairybusinessservices@outlook.com" className="flex items-center gap-2 text-orange-300 hover:text-orange-200">
+              <Mail size={18} /> fairybusinessservices@outlook.com
             </a>
             <a href="tel:+918890628049" className="flex items-center gap-2 text-orange-300 hover:text-orange-200">
               <Phone size={18} /> +91 88906 28049
