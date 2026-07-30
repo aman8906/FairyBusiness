@@ -1,8 +1,15 @@
-// One-off script to add 3 new listings WITHOUT touching existing jobs
+// One-off script to add new listings WITHOUT touching existing jobs
 // already in the database (does NOT clear the collection first).
 //
 // Run from the backend folder:
 //   node addJobs2.js
+//
+// NOTE: This version contains 4 NEW jobs (Field Executive, Computer
+// Operator, Sales Executive, HR Internship). If you have NOT yet run
+// the earlier version of this file (Training Program, Axis Max
+// Insurance Advisor, IDFC Bank Sales), add those back into the array
+// below before running, or run them separately first — otherwise they
+// won't be in the database.
 
 import "dotenv/config";
 import mongoose from "mongoose";
@@ -10,78 +17,76 @@ import Job from "./models/Job.js";
 
 const newJobs = [
   {
-    title: "Virtual Soft Skills & Personality Development Training (with AI Guideline)",
-    location: "Virtual / Online",
-    type: "Training Program",
-    experience: "Anyone Can Apply — Freshers to Experienced",
-    description:
-      "Invest in yourself and shape your future with our virtual Soft Skills & " +
-      "Personality Development program, guided with AI-based tools. Limited " +
-      "seats — enroll now.\n\n" +
-      "Program includes:\n" +
-      "• Soft Skills — Communication, Confidence, Teamwork & More\n" +
-      "• Personality Development — Build a Positive Mindset, Personal Brand & Leadership\n" +
-      "• Resume Building & ATS Support — AI-optimized resume that gets you noticed\n" +
-      "• Mock Interview Skills — Real-time practice with expert feedback\n" +
-      "• Placement Assistance — Job opportunities, career guidance & support\n\n" +
-      "Anyone can apply. Enhance your skills, boost your confidence, get hired, " +
-      "and achieve your career goals.",
-    skills: [
-      "Communication",
-      "Confidence Building",
-      "Personality Development",
-      "Resume Building (ATS)",
-      "Mock Interview Practice",
-      "Placement Assistance",
-    ],
-    isActive: true,
-  },
-  {
-    title: "Insurance Advisor - Axis Max Life Insurance (Part of Axis Bank)",
-    location: "Jaipur, Rajasthan",
-    type: "Flexible / Commission-Based",
-    experience: "Any Experience Level — Open to All",
-    description:
-      "Be a part of a legacy — build a future you deserve with Axis Max Life " +
-      "Insurance, part of the trusted Axis Bank family.\n\n" +
-      "Who can join: Housewives looking for financial independence, working " +
-      "professionals wanting additional income and career growth, and retired " +
-      "individuals looking to stay active and earn meaningfully.\n\n" +
-      "What you get: Attractive earning opportunities with performance-based " +
-      "incentives, best-in-class training, complete support from experienced " +
-      "leaders, a flexible and rewarding career on your own terms, high income " +
-      "potential, recognition and achievements, exciting trips and rewards, " +
-      "and growth and leadership opportunities.\n\n" +
-      "Contact: Sandeep Sharma, AADM | Axis Max Life Insurance, Jaipur Branch " +
-      "(Part of Axis Bank), Calgiri Road, Malviya Nagar, Jaipur.",
-    skills: [
-      "Sales",
-      "Relationship Building",
-      "Communication",
-      "Self-Motivation",
-    ],
-    isActive: true,
-  },
-  {
-    title: "Banking Product Sales Executive - IDFC FIRST Bank (Calling Process)",
-    location: "Thane, Jui Nagar, Maharashtra (On-site)",
+    title: "Field Executive",
+    location: "Vidhyadhar Nagar, Jaipur (On-site)",
     type: "Full-time",
-    experience: "1-2 Years in Banking Product Sales (Calling Process)",
+    experience: "Entry Level",
     description:
-      "Join a growing team and build your career in banking sales with IDFC " +
-      "FIRST Bank.\n\n" +
-      "Qualification: Graduate in any stream.\n" +
-      "Language: Fluent in English.\n" +
-      "Salary: ₹18,000 to ₹22,000 per month + incentives.\n\n" +
-      "Why join us: Attractive salary and incentives, career growth " +
-      "opportunities, a supportive and friendly work environment, and the " +
-      "chance to learn, grow and succeed.\n\n" +
-      "Interested candidates can share their resume on WhatsApp.",
+      "Fairy Business Services is hiring a Field Executive. Grow your career " +
+      "with a dynamic, supportive and stable team.\n\n" +
+      "Eligibility: Male candidates only. Minimum qualification: 10th pass.\n" +
+      "Salary: Attractive salary + conveyance allowance.\n\n" +
+      "Interested candidates can share their resume on WhatsApp: 8890628049. " +
+      "Apply now and start your career today.",
+    skills: ["Field Work", "Communication", "Time Management"],
+    isActive: true,
+  },
+  {
+    title: "Computer Operator",
+    location: "Jaipur, Rajasthan (On-site)",
+    type: "Full-time",
+    experience: "Any Experience Level",
+    description:
+      "Fairy Business Services is hiring a Computer Operator. Join us and be " +
+      "part of a growing, supportive team.\n\n" +
+      "Hiring: Any male / female.\n" +
+      "Required skills: Good knowledge of Internet, Social Media and MS-Office.\n" +
+      "Qualification: Any graduate.\n" +
+      "Salary: ₹15,000 to ₹20,000 per month.\n\n" +
+      "Apply now — send your resume on WhatsApp or call 8890628049.",
+    skills: ["Internet", "Social Media", "MS Office", "Computer Operations"],
+    isActive: true,
+  },
+  {
+    title: "Sales Executive (Male)",
+    location: "Udaipur, Jodhpur, Ganganagar, Hanumangarh, Sikar, Alwar, Kota, Jaipur (On-site)",
+    type: "Full-time",
+    experience: "2-3 Years in Field Sales",
+    description:
+      "Fairy Business Services is hiring a Sales Executive for field sales " +
+      "roles across multiple Rajasthan locations. Join our team and build a " +
+      "successful career with us.\n\n" +
+      "Qualification: Graduate.\n" +
+      "Requirement: Own bike is a must.\n" +
+      "Salary: Starting from ₹20,000 per month + travel allowance.\n\n" +
+      "Apply now on WhatsApp: 8890628049.",
     skills: [
-      "Banking Product Sales",
-      "Tele-calling",
-      "Customer Communication",
+      "Field Sales",
+      "Communication",
       "Target Achievement",
+      "Two-Wheeler License",
+    ],
+    isActive: true,
+  },
+  {
+    title: "HR Internship Program (Females & Freshers Only)",
+    location: "Remote / Jaipur Basis (Flexible)",
+    type: "Internship",
+    experience: "Fresher",
+    description:
+      "Exciting opportunity — join our HR Internship Program and build your " +
+      "career in HR.\n\n" +
+      "Eligibility: Fresh graduates, females only.\n" +
+      "Location: Remote / Jaipur basis with flexible work options.\n" +
+      "Duration: 3-6 months, with stipend and certificate on completion.\n\n" +
+      "Gain hands-on HR experience in Recruitment, Employee Engagement and " +
+      "Administration, with mentorship from experienced professionals.\n\n" +
+      "Apply now — send your resume on WhatsApp or call 8890628049.",
+    skills: [
+      "HR Recruitment",
+      "Employee Engagement",
+      "Administration",
+      "MS Office",
     ],
     isActive: true,
   },
